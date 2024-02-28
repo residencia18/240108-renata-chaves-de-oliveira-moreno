@@ -1,0 +1,56 @@
+.container-destinos {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Adicionando flex-wrap para permitir que os itens quebrem para a linha seguinte */
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.roteiros-viagens {
+    background-color: rgb(178, 108, 243);
+    padding: 20px;
+    border-radius: 30px;
+    max-width: 200px;
+    flex-grow: 1; /* Adicionando flex-grow para permitir que os itens cresçam horizontalmente */
+}
+
+.roteiro-comprar {
+    background-color: rgb(172, 253, 164);
+    display: block;
+    margin: auto;
+}
+
+.roteiro-destino {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(69, 6, 128);
+}
+
+.roteiro-preco {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(82, 7, 151);
+    font-weight: bold;
+}
+
+.roteiro-obs {
+    text-align: center;
+    font-size: 10px;
+}
+
+.roteiro-parcelamento {
+    text-align: center;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 1200px) {
+    /* Aplica estilos quando a largura da tela for menor que 1200px */
+    .container-destinos {
+        flex-direction: column; /* Dispor os itens em coluna */
+        align-items: center; /* Centralizar os itens na tela */
+    }
+}

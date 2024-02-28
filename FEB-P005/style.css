@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #abfdb0;
+    min-height: 100vh;
+}
+
+#header{
+    text-align: center;
+    line-height: 99px;
+    margin: auto;
+    width: 100vw;
+    height: 100px;
+    background-color: #044021;
+    color: #d8d8d8;
+    font-size: xx-large;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.conteudo_pagina{
+    width: 90vw;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 20%;
+    gap: 5px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#resultados{
+    width: 400px;
+}
+
+.titulo_container{
+    background-color: #40f095;
+    color: #03530e;
+    padding-left: 10px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.conteudo_container{
+    font-family: 'Roboto', sans-serif;
+    background-color: #b5ffb4;
+}
+
+li{
+    list-style-type: none;
+}
+
+#imagem_destaque{
+    display: grid;
+    grid-template-columns: 100px;
+    grid-template-rows: 100px;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+img{
+    width: 100px;
+}
+
+h4{
+    color: #000000;
+}
+
+p{
+    padding: 10px 10px;
+}
+
+#itens_menu{
+    padding: 10px 10px;
+}
+
+.a_menu{
+    text-decoration: none;
+    color: #060606;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#itens_noticias{
+    padding: 10px 10px;
+}
+
+.a_noticias{
+    padding: 10px 10px;
+    color: #060606;
+}
+
+footer{
+    color: #f0f0f0;
+    text-align: center;
+    line-height: 30px;
+    background-color: #02611d;
+    width: 100vw;
+    height: 90px;
+    position: fixed;
+    font-family: 'Mukta', sans-serif;
+    font-size: 15px;
+}
+
+#texto_tela_p{
+    display: none;
+}
+
+@media (max-width: 500px){
+    .conteudo_pagina{
+        grid-template-columns: 1fr;
+    }
+
+    #imagem_destaque{
+        margin: 10px auto;
+    }
+    
+
+    #resultados{
+        width: 450px;
+    }
+
+    #texto_tela_g{
+        display: none;
+    }
+
+    #texto_tela_p{
+        display: block;
+    }
+
+    #imagem_2{
+        display: none;
+    }
+
+    #titulo_3{
+        display: none;
+    }
+}

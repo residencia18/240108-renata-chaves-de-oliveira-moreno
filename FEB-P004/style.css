@@ -1,0 +1,68 @@
+.container-destinos {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap; /* Adicionei esta propriedade para permitir que os destinos quebrem para a próxima linha se não couberem na largura da tela. */
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+.roteiros-viagens {
+    background-color: rgb(178, 108, 243);
+    padding: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 250px; /* Defini uma largura fixa para cada destino. */
+    box-sizing: border-box; /* Isso inclui a largura e a altura do elemento na contagem total, considerando bordas e preenchimento. */
+}
+
+.roteiro-comprar {
+    background-color: rgb(172, 253, 164);
+    display: block;
+    margin: auto;
+}
+
+.roteiro-destino {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 20px;
+    color: rgb(69, 6, 128);
+}
+
+.roteiro-preco {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(82, 7, 151);
+    font-weight: bolder;
+}
+
+.roteiro-obs {
+    text-align: center;
+    font-size: 10px;
+}
+
+.roteiro-parcelamento {
+    text-align: center;
+    font-size: 15px;
+}
+
+.formulario-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#formulario {
+    width: 300px; /* Defina a largura desejada para o formulário. */
+    margin: 0 auto; /* Isso centralizará o formulário na tela. */
+}
+
+#formulario label,
+#formulario select,
+#formulario input,
+#formulario textarea,
+#formulario button {
+    display: block;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Agência de Turismo</title>
+</head>
+<body>
+
+    <div class="container-destinos" id="containerDestinos">
+        <!-- Destino 1 -->
+        <div class="roteiros-viagens">
+            <img src="salvador.jpg" class="postal" alt="Salvador">
+            <div class="roteiro-destino">Salvador</div>
+            <ul class="roteiro-incluso">
+                <li>Áereo ida e volta</li>
+                <li>03 diárias</li>
+                <li>Café da Manhã</li>
+            </ul>
+            <div class="roteiro-preco">R$670,00</div>
+            <div class="roteiro-obs">Taxas Inclusas</div>
+            <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
+            <button class="roteiro-comprar" onclick="exibirFormulario('Salvador', 'Áereo ida e volta\n03 diárias\nCafé da Manhã', 'R$670,00', 'Taxas Inclusas', 'Em até 10x sem Juros')">Comprar</button>
+        </div>
+
+        <!-- Destino 2 -->
+        <div class="roteiros-viagens">
+            <img src="fortaleza.jpg" class="postal" alt="Fortaleza">
+            <div class="roteiro-destino">Fortaleza</div>
+            <ul class="roteiro-incluso">
+                <li>Áereo ida e volta</li>
+                <li>06 diárias</li>
+                <li>Café da Manhã</li>
+            </ul>
+            <div class="roteiro-preco">R$1513,00</div>
+            <div class="roteiro-obs">Taxas Inclusas</div>
+            <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
+            <button class="roteiro-comprar" onclick="exibirFormulario('Fortaleza', 'Áereo ida e volta\n06 diárias\nCafé da Manhã', 'R$1513,00', 'Taxas Inclusas', 'Em até 10x sem Juros')">Comprar</button>
+        </div>
+
+        <!-- Destino 3 -->
+        <div class="roteiros-viagens">
+            <img src="campinas.jpg" class="postal" alt="Campinas">
+            <div class="roteiro-destino">Campinas</div>
+            <ul class="roteiro-incluso">
+                <li>Áereo ida e volta</li>
+                <li>04 diárias</li>
+                <li>Café da Manhã</li>
+            </ul>
+            <div class="roteiro-preco">R$900,00</div>
+            <div class="roteiro-obs">Taxas Inclusas</div>
+            <div class="roteiro-parcelamento">Em até 10x sem Juros</div>
+            <button class="roteiro-comprar" onclick="exibirFormulario('Campinas', 'Áereo ida e volta\n04 diárias\nCafé da Manhã', 'R$900,00', 'Taxas Inclusas', 'Em até 10x sem Juros')">Comprar</button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="formulario-container" id="formularioContainer" style="display: none;">
+        <h2>Formulário de Novo Destino</h2>
+        <form id="formulario">
+            <label for="nomeDestino">Nome do Destino:</label>
+            <input type="text" id="nomeDestino" required>
+
+            <!-- Adicionei um campo para a URL da imagem -->
+            <label for="imagemURL">URL da Imagem:</label>
+            <input type="url" id="imagemURL" required>
+
+            <label for="inclusoPacote">O que está incluso no pacote:</label>
+            <textarea id="inclusoPacote" required></textarea>
+
+            <label for="preco">Preço:</label>
+            <input type="text" id="preco" required>
+
+            <label for="taxasInclusas">Taxas Inclusas:</label>
+            <select id="taxasInclusas" required>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+
+            <label for="formaPagamento">Forma de Pagamento:</label>
+            <input type="text" id="formaPagamento" required>
+
+            <button type="button" onclick="inserirDestino()">Inserir</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
