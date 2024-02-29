@@ -15,9 +15,13 @@ public class Leilao {
     private String nome;
     private String descricao;
     private BigDecimal precoInicial;
-	public Leilao(String nome2, String descricao2, BigDecimal precoInicial2) {
-		// TODO Auto-generated constructor stub
-	}
+	
+public Leilao(String nome, String descricao, BigDecimal precoInicial) {
+    this.nome = nome;
+    this.descricao = descricao;
+    this.precoInicial = precoInicial;
+}
+
 	public void addLance(Lance lance) {
 		// TODO Auto-generated method stub
 		
