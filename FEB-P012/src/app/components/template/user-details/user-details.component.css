@@ -1,0 +1,23 @@
+.user-details-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .user-details-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .user-details-container p {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .user-details-container strong {
+    font-weight: bold;
+  }
+  
