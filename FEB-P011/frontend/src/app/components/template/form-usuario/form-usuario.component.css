@@ -1,0 +1,55 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+div[style] {
+  flex-direction: row;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #df841d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(230, 179, 12);
+}
+
+@media (max-width: 600px) {
+  form {
+    padding: 20px;
+  }
+}

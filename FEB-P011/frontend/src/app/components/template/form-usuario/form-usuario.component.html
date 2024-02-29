@@ -1,0 +1,61 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Nome do usuário:</label>
+    <input type="text" id="username" formControlName="username" placeholder="Digite seu nome de usuário">
+  </div>
+  <div>
+    <label for="password">Senha:</label>
+    <input type="password" id="password" formControlName="password" placeholder="Digite sua senha">
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" placeholder="Digite seu email">
+  </div>
+  <div>
+    <label for="fullName">Nome completo:</label>
+    <input type="text" id="fullName" formControlName="fullName" placeholder="Digite seu nome completo">
+  </div>
+  <div>
+    <label for="phone">Telefone:</label>
+    <input type="tel" id="phone" formControlName="phone" placeholder="Digite seu telefone">
+  </div>
+  <div>
+    <label for="address">Endereço:</label>
+    <input type="text" id="address" formControlName="address" placeholder="Digite seu endereço">
+  </div>
+  <div>
+    <label for="birthDate">Data de Nascimento:</label>
+    <input type="date" id="birthDate" formControlName="birthDate">
+  </div>
+  <div>
+    <label for="gender">Gênero:</label>
+    <select id="gender" formControlName="gender">
+      <option value="masculino">Masculino</option>
+      <option value="feminino">Feminino</option>
+      <option value="feminino">Outros</option>
+      <!-- Adicione mais opções conforme necessário -->
+    </select>
+  </div>
+  <div>
+    <label for="profession">Profissão:</label>
+    <select id="profession" formControlName="profession">
+      <option value="profissao1">Front End</option>
+      <option value="profissao2">Back End</option>
+      <option value="profissao2">Full Stack</option>
+      <!-- Adicione mais opções conforme necessário -->
+    </select>
+  </div>
+  <div>
+    <label for="terms">Termos e Condições:</label>
+    <textarea id="terms" readonly style="width: 100%; height: 100px;">
+      Aqui estão os termos e condições fictícios para o uso deste formulário. Ao marcar a caixa abaixo, você concorda com todos os termos e condições apresentados aqui.
+    </textarea>
+  </div>
+  <div style="display: flex; align-items: center;">
+    <input type="checkbox" id="agreeTerms" formControlName="agreeTerms" style="margin-right: 10px;">
+    <label for="agreeTerms">Eu concordo com os Termos e Condições</label>
+  </div>
+  
+  
+  <button type="submit">Enviar dados</button>
+</form>
