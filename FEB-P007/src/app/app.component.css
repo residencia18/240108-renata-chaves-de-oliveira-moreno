@@ -1,0 +1,108 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.search-bar {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-row button,
+.button-row2 button,
+.button-row3 button {
+  margin-bottom: 20px;
+  margin-right: 60px; 
+  background-color: rgb(6, 73, 73);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 20px 80px;
+  cursor: pointer;
+}
+
+.button-row button:first-child,
+.button-row2 button:first-child,
+.button-row3 button:first-child {
+  margin-left: 0;
+}
+
+.button-row button:nth-child(2) {
+  background-color: rgb(219, 219, 11);
+}
+
+.button-row button:nth-child(n+3) {
+  background-color: rgb(219, 181, 11);
+}
+
+.button-row2 button:nth-child(2) {
+  background-color: rgb(11, 77, 219);
+}
+
+.button-row2 button:nth-child(n+3) {
+  background-color: rgb(11, 77, 219);
+}
+
+.button-row3 button:nth-child(2) {
+  background-color: rgb(11, 77, 219);
+}
+
+.button-row3 button:nth-child(n+3) {
+  background-color: rgb(11, 77, 219);
+}
+
+.button-row-roxo button {
+  background-color: rgb(219, 184, 11);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 190px;
+  padding: 200px 100px;
+  cursor: pointer;
+}
+
+.button-row-adicionar button {
+  margin-top: 180px;
+  margin-left: 20px;
+  background-color: rgb(6, 73, 73);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 20px 50px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .button-row button,
+  .button-row2 button,
+  .button-row3 button,
+  .button-row-roxo button,
+  .button-row-adicionar button {
+    width: 100%;
+    margin-left: 0; 
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  .button-row button,
+  .button-row2 button,
+  .button-row3 button{
+    margin-bottom: 20px;
+    margin-right: 140px; 
+  }
+}
