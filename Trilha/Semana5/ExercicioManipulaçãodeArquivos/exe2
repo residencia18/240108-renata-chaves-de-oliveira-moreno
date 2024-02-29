@@ -1,0 +1,8 @@
+Exercício: Manipulação de Arquivos
+• Crie uma classe chamada ManipulacaoArquivo que recebe o nome de um arquivo
+como entrada. Se o arquivo não existir, lance uma exceção chamada
+ArquivoNaoEncontradoException.
+• Como testar se um arquivo existe? Google!
+• Crie uma classe chamada Persistencia com um método lerDados(nomeDoArquivo) que
+utilize esta exceção.
+• Implemente uma versão checada e uma versão não checada.

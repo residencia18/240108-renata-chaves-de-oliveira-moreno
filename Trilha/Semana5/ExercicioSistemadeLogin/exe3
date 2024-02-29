@@ -1,0 +1,13 @@
+Exercício: Sistema de Login
+• Crie uma classe chamada SistemaLogin que simula um sistema de login.
+• Crie um método cadastrarUsuario(). Solicite ao usuário que insira um nome de usuário (use sua classe de usuário,
+ou crie outra) e uma senha. Se o nome de usuário for vazio ou a senha tiver menos de 6 caracteres, lance uma
+exceção chamada CredenciaisInvalidasException. Depois solicite novamente os dados.
+• Quando obtiver sucesso, instacie um objeto usuário e o insira numa lista de usuários.
+• Crie um método login(). Solicite ao usuário que insira um nome de usuário (use sua classe de usuário, ou crie
+outra) e uma senha. Se o nome de usuário for vazio ou não existir na lista, lance uma exceção chamada
+UsuarioErradoExpeption. Caso a senha tiver menos de 6 caracteres, ou a senha não coincidir com o usuário, lance
+uma exceção chamada AutenticacaoFalhouException. Depois solicite novamente os dados. Caso de autenticação
+persistir por três tentativas seguidas, gerar uma exceção chamada UsuarioBloqueadoException e marcar aquele
+usuário como bloqueado (flag?)
+• Implemente uma versão checada e uma versão não checada.
