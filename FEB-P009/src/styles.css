@@ -1,0 +1,54 @@
+
+
+
+
+html,
+body {
+  height: 100%;
+}
+body {
+
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: rgb(0, 0, 0);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-size: 22px;
+  }
+
+h1,
+h2,
+h3,
+a  {
+  color: white;
+  text-decoration: none;
+}
+
+p{
+  color: grey;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+
+}
+
+
+.container{
+  width: 700px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media (max-width: 750px){
+  .container{
+    width: 100%;
+    padding: 0 20px;
+  }
+
+}

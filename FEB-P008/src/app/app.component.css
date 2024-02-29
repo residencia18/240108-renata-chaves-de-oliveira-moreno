@@ -1,0 +1,42 @@
+/* app.component.css */
+
+.search-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .search-input {
+    width: 70%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    background-color: #0073e6;
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 8px;
+  }
+  
+  .search-results {
+    margin-top: 20px;
+  }
+  
+  .search-result-item {
+    list-style: none;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background-color: #f8f8f8;
+  }
+  
+  .no-results {
+    color: #ff0000;
+    margin-top: 20px;
+  }
+  

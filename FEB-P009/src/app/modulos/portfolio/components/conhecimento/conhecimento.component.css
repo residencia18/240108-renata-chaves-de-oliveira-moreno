@@ -1,0 +1,37 @@
+:host {
+  margin-top: 25px;
+  padding: 25px 0;
+  background: var grey;
+  background-color: rgb(66, 61, 61);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    margin: 0;
+  }
+
+  ul {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    li {
+      width: 50px;
+      height: 50px;
+      background: var(--black-010);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      border-radius: 7px;
+    }
+  }
+}

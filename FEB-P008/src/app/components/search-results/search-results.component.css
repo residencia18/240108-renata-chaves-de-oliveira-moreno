@@ -1,0 +1,22 @@
+/* search-result.component.css */
+
+.search-result {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    padding: 16px;
+  }
+  
+  .result-title {
+    color: #0073e6;
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+  
+  .result-snippet {
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* Adicione mais estilos conforme necessário para melhorar a aparência */
+  
