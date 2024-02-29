@@ -1,0 +1,15 @@
+img {
+  margin-top: 15px;
+  height: 100px;
+}
+
+@media (max-width: 500px) {
+  img {
+      margin-top: 15px;
+      height: 200px;
+  }
+
+  img:nth-child(2) {
+      display: none;
+  }
+}

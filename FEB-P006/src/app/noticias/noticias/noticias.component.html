@@ -1,0 +1,9 @@
+<h1>Notícias</h1>
+<hr />
+<div class="container-news">
+    <div class="news" *ngFor="let new of news">
+        <p>{{ new.title }}</p>
+        <a [href]="new.url">{{ new.url }}</a>
+    </div>
+</div>
+<button>Mais Notícias</button>

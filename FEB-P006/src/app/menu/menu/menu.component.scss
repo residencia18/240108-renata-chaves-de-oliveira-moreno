@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  flex-direction: column;
+
+  height: 85%;
+  justify-content: space-between;
+  gap: 10px;
+
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2em;
+  margin-top: 15px;
+
+  a {
+      text-decoration: inherit;
+      color: #010101;
+  }
+}
