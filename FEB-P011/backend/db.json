@@ -1,0 +1,16 @@
+{
+"usuario": [
+    {
+    "id":1,
+    "Nome usuario": "Renata",
+    "senha": "1234",
+    "e-mail": "renchom@",
+    "Nome Completo": "renata moreno",
+    "Telefone": "73 9991",
+    "Endereço": "rua osmundo",
+    "Data Nascimento": "19/06/83",
+    "Gênero": "F",
+    "Profissão": "FullStreck"
+}
+]
+}
