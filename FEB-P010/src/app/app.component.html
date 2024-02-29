@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="search-bar">
+    <input type="text" placeholder="Procurar... veiculos.json" />
+  </div>
+
+  <div class="button-container">
+    <div class="button-row">
+      <button mat-raised-button (click)="listarCategorias()">Categorias</button>
+      <button mat-raised-button (click)="listarVeiculos('Aviões')">Aviões</button>
+      <button mat-raised-button (click)="listarVeiculos('Carros')">Carros</button>
+      <button mat-raised-button (click)="listarVeiculos('Barcos')">Barcos</button>
+    </div>
+
+    <div class="button-row2">
+      <button mat-raised-button (click)="listarVeiculos('Aviões')">Aviões</button>
+      <button mat-raised-button (click)="listarPropriedades('Supermarine Spiƞire')">Supermarine Spitfire</button>
+      <button mat-raised-button (click)="listarPropriedades('P-51 Mustang')">P-51 Mustang</button>
+      <button mat-raised-button (click)="listarPropriedades('B-17 Flying Fortress')">B-17 Flying Fortress</button>
+    </div>
+
+    <div class="button-row3">
+      <button mat-raised-button (click)="listarPropriedades('Supermarine Spiƞire')">Supermarine Spitfire</button>
+      <button mat-raised-button (click)="selecionarPropriedade('Name')">Name</button>
+      <button mat-raised-button (click)="selecionarPropriedade('Model')">Model</button>
+      <button mat-raised-button (click)="selecionarPropriedade('Engine')">Egine</button>
+      <button mat-raised-button (click)="selecionarPropriedade('NumberOfPassengers')">Number of Passagers</button>
+      <button mat-raised-button (click)="selecionarPropriedade('Autonomia')">Autonomia</button>
+      <button mat-raised-button (click)="selecionarPropriedade('Alcance')">Alcance</button>
+      <button mat-raised-button (click)="selecionarPropriedade('Teto')">Teto</button>
+    </div>
+
+    <div class="button-row-roxo">
+      <button mat-raised-button (click)="selecionarPropriedade('Supermarine Spitfire')">Supermarine Spitfire</button>
+    </div>    
+    <div class="button-row-adicionar">
+      <button mat-raised-button (click)="adicionarVeiculo()">Adicionar</button>
+    </div>
+  </div>
+
+  <!-- Exibir veículos selecionados -->
+  <div *ngIf="veiculosSelecionados.length > 0">
+    <h2>Veículos Selecionados</h2>
+    <ul>
+      <li *ngFor="let veiculo of veiculosSelecionados">
+        {{ veiculo.Name }}
+      </li>
+    </ul>
+  </div>
+</div>
