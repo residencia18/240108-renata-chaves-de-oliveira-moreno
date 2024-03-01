@@ -1,3 +1,4 @@
+
 package com.leilaoonline.leiloajava.modelo;
 
 import jakarta.persistence.*;
