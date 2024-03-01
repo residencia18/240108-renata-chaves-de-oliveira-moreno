@@ -29,7 +29,7 @@ public class LeilaoService {
     }
 
     public Leilao criarLeilao(LeilaoForm leilaoForm) {
-        Leilao leilao = new Leilao(leilaoForm.getNome(), leilaoForm.getDescricao(), leilaoForm.getPrecoInicial());
+        Leilao leilao = new Leilao( leilaoForm.getDescricao(), leilaoForm.getPrecoInicial(), null);
         return leilaoRepositorio.save(leilao);
     }
 
@@ -37,12 +37,11 @@ public class LeilaoService {
         Optional<Leilao> leilaoOptional = leilaoRepositorio.findById(id);
         if (leilaoOptional.isPresent()) {
             Leilao leilao = leilaoOptional.get();
-            leilao.setNome(leilaoForm.getNome());
+            //leilao.setNome(leilaoForm.getNome());
             leilao.setDescricao(leilaoForm.getDescricao());
             leilao.setPrecoInicial(leilaoForm.getPrecoInicial());
             return leilaoRepositorio.save(leilao);
         } else {
-            // Se o leilão não existe, você pode lançar uma exceção ou retornar null
             return null;
         }
     }
