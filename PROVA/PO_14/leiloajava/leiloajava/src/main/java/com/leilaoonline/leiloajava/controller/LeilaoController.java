@@ -63,6 +63,6 @@ public class LeilaoController {
     }
 
     private LeilaoDTO convertLeilaoToDTO(Leilao leilao) {
-        return new LeilaoDTO(leilao.getId(), leilao.getNome(), leilao.getDescricao());
+        return new LeilaoDTO(leilao.getId(), leilao.getDescricao());
     }
 }
