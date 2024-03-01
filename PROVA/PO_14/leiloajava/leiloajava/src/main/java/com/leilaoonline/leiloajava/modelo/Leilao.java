@@ -12,15 +12,26 @@ public class Leilao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+   // private String nome;
     private String descricao;
     private BigDecimal precoInicial;
+    private BigDecimal valorMinimo;
+    private int status;
     
-    public Leilao(String nome, String descricao, BigDecimal precoInicial) {
-        this.nome = nome;
+    public Leilao( String descricao, BigDecimal precoInicial, BigDecimal valorMinimo) {
+        //this.nome = nome;
         this.descricao = descricao;
         this.precoInicial = precoInicial;
+        this.valorMinimo = valorMinimo;
     }
+
+	public BigDecimal getValorMinimo() {
+		return valorMinimo;
+	}
+
+	public void setValorMinimo(BigDecimal valorMinimo) {
+		this.valorMinimo = valorMinimo;
+	}
 
 	public void addLance(Lance lance) {
 		// TODO Auto-generated method stub
@@ -44,9 +55,9 @@ public class Leilao {
 	public void setPrecoInicial(BigDecimal precoInicial) {
 		this.precoInicial = precoInicial;
 	}
-	public String getNome() {
+/*	public String getNome() {
 		return nome;
-	}
+	}*/
 	public void setNome(String nome2) {
 	
 		
