@@ -15,7 +15,7 @@ public class LanceDTO {
         this.id = lance.getId();
         this.valor = lance.getValor();
         this.leilao = new LeilaoDTO(lance.getLeilao());
-        // Se Concorrente é uma classe real, substitua pelo nome correto da classe.
+        
         this.concorrente = new ConcorrenteDTO(lance.getUsuario());
     }
 
