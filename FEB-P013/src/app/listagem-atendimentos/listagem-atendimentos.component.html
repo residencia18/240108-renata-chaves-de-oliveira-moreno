@@ -1,0 +1,13 @@
+<div class="listagem-atendimentos">
+    <h2>Listagem de Atendimentos</h2>
+    <div *ngFor="let atendimento of atendimentos">
+      <p>Nome do Pet: {{ atendimento.nomePet }}</p>
+      <p>Tipo de Pet: {{ atendimento.tipoPet }}</p>
+      <p>Data do Atendimento: {{ atendimento.dataAtendimento }}</p>
+      <p>Observações: {{ atendimento.observacoes }}</p>
+      <hr> <!-- Apenas para separar os atendimentos -->
+    </div>
+    
+    
+  </div>
+  

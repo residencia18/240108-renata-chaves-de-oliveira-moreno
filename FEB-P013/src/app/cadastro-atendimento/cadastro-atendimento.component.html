@@ -1,0 +1,23 @@
+<!-- cadastro-atendimento.component.html -->
+
+<main>
+  <form (ngSubmit)="submitForm()" class="cadastro-form">
+    <h2>Cadastrar Atendimento</h2>
+    <label for="nomePet">Nome do Pet:</label>
+    <input type="text" id="nomePet" name="nomePet" [(ngModel)]="nomePet" required>
+    
+    <label for="tipoPet">Tipo de Pet:</label>
+    <select id="tipoPet" name="tipoPet" [(ngModel)]="tipoPet" required>
+      <option value="cachorro">Cachorro</option>
+      <option value="gato">Gato</option>
+    </select>
+    
+    <label for="dataAtendimento">Data do Atendimento:</label>
+    <input type="date" id="dataAtendimento" name="dataAtendimento" [(ngModel)]="dataAtendimento" required>
+
+    <label for="observacoes">Observações:</label>
+    <textarea id="observacoes" name="observacoes" [(ngModel)]="observacoes"></textarea>
+    
+    <button type="submit" class="btn-submit">Cadastrar Atendimento</button>
+  </form>
+</main>

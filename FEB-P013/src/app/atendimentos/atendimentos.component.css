@@ -1,0 +1,23 @@
+/* atendimentos.component.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .atendimento-item {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .atendimento-item p {
+    margin: 5px 0;
+  }
+  
+  .atendimento-item p:first-child {
+    font-weight: bold;
+  }
+  
+  

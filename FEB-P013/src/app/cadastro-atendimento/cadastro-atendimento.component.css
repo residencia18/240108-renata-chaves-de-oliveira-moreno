@@ -1,0 +1,60 @@
+.cadastro-form {
+    max-width: 600px; /* Define uma largura máxima para o formulário */
+    width: 90%; /* Define a largura do formulário como 90% do contêiner pai */
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .cadastro-form h2 {
+    text-align: center;
+    margin-top: 0;
+  }
+  
+  .cadastro-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .cadastro-form input[type="text"],
+  .cadastro-form select,
+  .cadastro-form input[type="date"],
+  .cadastro-form button {
+    width: calc(100% - 22px); /* Ajusta para adicionar margem de 10px em cada lado */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .cadastro-form select {
+    width: 100%; /* Define a largura do select para 100% */
+  }
+  
+  .cadastro-form button {
+    width: 100%; /* Botão ocupa a largura total */
+  }
+  
+  /* Estilos para o botão */
+  .btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media query para ajustar o layout em telas menores */
+  @media screen and (max-width: 768px) {
+    .cadastro-form {
+      width: 100%; /* Define a largura do formulário como 100% em telas menores */
+    }
+  }
+  

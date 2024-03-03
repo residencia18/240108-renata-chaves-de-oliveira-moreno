@@ -1,0 +1,14 @@
+<!-- atendimentos.component.html -->
+
+<div *ngIf="atendimentos">
+    <h1>Lista de Atendimentos</h1>
+    <ul>
+      <li *ngFor="let atendimento of atendimentos">
+        <p>Nome do Pet: {{ atendimento.nomePet }}</p>
+        <p>Tipo do Pet: {{ atendimento.tipoPet }}</p>
+        <p>Data do Atendimento: {{ atendimento.dataAtendimento }}</p>
+        <p>Observações: {{ atendimento.observacoes }}</p>
+      </li>
+    </ul>
+  </div>
+  
