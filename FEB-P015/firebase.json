@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "suinocultura-a16ad",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
