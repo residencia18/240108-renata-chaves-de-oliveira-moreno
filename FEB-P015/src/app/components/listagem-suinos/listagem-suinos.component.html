@@ -1,0 +1,49 @@
+<app-dashboard></app-dashboard>
+
+<div class="listagem-suinos-container">
+    <h2>Listagem de Suínos</h2>
+  
+    <!-- Filtros -->
+    <div class="filtros">
+      <!-- Filtro por brinco do pai -->
+      <label for="filtroBrincoPai">Filtrar por brinco do pai:</label>
+      <input type="text" id="filtroBrincoPai" [(ngModel)]="filtroBrincoPai">
+  
+      <!-- Outros filtros aqui -->
+      <!-- Filtro por brinco da mãe, data de nascimento, data de saída, sexo, status, etc. -->
+    </div>
+  
+    <!-- Tabela de Listagem -->
+    <table>
+      <thead>
+        <tr>
+          <th>Brinco</th>
+          <th>Nome</th>
+          <th>Data de Nascimento</th>
+          <th>Idade</th>
+          <th>Sexo</th>
+          <th>Status</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop sobre a lista de suínos -->
+        <tr *ngFor="let suino of suinos | filtroSuinos: filtroBrincoPai; let i = index">
+          <td>{{ suino.brinco }}</td>
+          <td>{{ suino.nome }}</td>
+          <td>{{ suino.dataNascimento | date }}</td>
+          <td>{{ suino.dataNascimento | calcularIdadeEmMeses }}</td>
+          <td>{{ suino.sexo }}</td>
+          <td>{{ suino.status }}</td>
+          <td>
+            <!-- Botão de edição -->
+            <button (click)="editarSuino(suino)">Editar</button>
+            <!-- Botão de exclusão -->
+            <button (click)="confirmarExclusao(suino)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+

@@ -1,0 +1,28 @@
+<div class="container">
+  <header class="py-3 mb-4 border-bottom text-center"> <!-- Adicione a classe text-center para centralizar o conteúdo -->
+    <a href="/" class="navbar-brand d-block mb-4 text-dark text-decoration-none">
+      <img src="assets/img/suino.png" alt="Logo" width="200" height="150">
+    </a>
+
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav"> <!-- Adicione a classe justify-content-center para centralizar os itens do menu -->
+          <ul class="navbar-nav">
+            <li class="nav-item"><a routerLink="/dashboard" class="nav-link link-dark">Início</a></li>
+            <li class="nav-item"><a routerLink="/cadastro-suino" class="nav-link link-dark">Cadastro de Suíno</a></li>
+            <li class="nav-item"><a routerLink="/listagem-suinos" class="nav-link link-dark">Listagem de Suínos</a></li>
+            <li class="nav-item"><a routerLink="/controle-peso" class="nav-link link-dark">Controle de Peso</a></li> 
+            <li class="nav-item"><a routerLink="/cadastro-peso" class="nav-link link-dark">Cadastro de Peso</a></li>    
+            <li class="nav-item"><a routerLink="/edicao-peso" class="nav-link link-dark">Edição de Peso</a></li>
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <app-footer></app-footer>

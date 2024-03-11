@@ -1,0 +1,8 @@
+<app-dashboard></app-dashboard>
+
+<div *ngFor="let peso of pesos">
+    <input type="text" [(ngModel)]="peso.valor" placeholder="Peso">
+    <input type="text" [(ngModel)]="peso.data" placeholder="Data da Pesagem">
+    <button (click)="editarPeso(peso)">Editar</button>
+</div>
+<button (click)="salvarEdicao()">Salvar Alterações</button>

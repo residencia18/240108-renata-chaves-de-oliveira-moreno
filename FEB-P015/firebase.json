@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "suinocultura-a16ad",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
