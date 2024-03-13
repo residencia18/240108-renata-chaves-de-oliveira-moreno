@@ -1,7 +1,7 @@
 <img src="https://brandslogos.com/wp-content/uploads/images/java-logo-1.png" alt="Logo do JAVA" width="70" height="70" align="left"> 
 
 
-#### Este repositório é destinado ao módulo de JAVA.
+#### Este repositório é destinado ao módulo Avançado de JAVA.
 
 
 <hr>
