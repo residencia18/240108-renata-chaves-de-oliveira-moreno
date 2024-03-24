@@ -1,0 +1,47 @@
+<app-dashboard></app-dashboard>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form #manejoForm="ngForm" (ngSubmit)="submitForm(manejoForm)">
+        <div class="form-group">
+          <label>Data:</label>
+          <input type="date" class="form-control" name="data" ngModel required>
+        </div>
+        <div class="form-group">
+          <label>Descrição:</label>
+          <textarea class="form-control" name="descricao" ngModel required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Animais (Brincos):</label>
+          <input type="text" class="form-control" name="animais" ngModel required>
+        </div>
+        <div class="form-group">
+          <label>Vacina:</label>
+          <div class="input-group">
+            <input type="text" class="form-control" name="novaVacina" [(ngModel)]="novaVacina">
+            <div class="input-group-append">
+              <button type="button" class="btn btn-success" (click)="adicionarVacina()">Adicionar Vacina</button>
+            </div>
+          </div>
+        </div>
+        <div *ngFor="let vacina of vacinas; let i = index" class="form-group">
+          <input type="text" class="form-control" name="vacina{{i}}" [(ngModel)]="vacinas[i]">
+         
+          <button type="button" class="btn btn-danger" (click)="removeVacina(i)">Remover</button>
+        </div>
+        <div class="form-group">
+          <label>Atividades Planejadas:</label>
+          <textarea class="form-control" name="atividadesPlanejadas" ngModel required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <div>{{ mensagem }}</div>
+
+      </form>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>

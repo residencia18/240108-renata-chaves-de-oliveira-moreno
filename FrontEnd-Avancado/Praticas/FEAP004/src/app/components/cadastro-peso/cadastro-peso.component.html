@@ -1,0 +1,28 @@
+<app-dashboard></app-dashboard>
+
+<div class="container">
+    <div class="form-container">
+      <form [formGroup]="pesoForm" (ngSubmit)="submitPeso()">
+        <div>
+          <label>Número de Brinco:</label>
+          <input type="text" formControlName="numeroBrinco" />
+        </div>
+        <div>
+          <label>Data da Pesagem:</label>
+          <input type="date" formControlName="dataPesagem" />
+        </div>
+        <div>
+          <label>Peso (Kg):</label>
+          <input type="number" formControlName="peso" />
+        </div>
+        <button type="submit" [disabled]="pesoForm.invalid">Registrar Peso</button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="chart-container">
+      <canvas #pesoChart></canvas>
+    </div>
+  </div>
+  
