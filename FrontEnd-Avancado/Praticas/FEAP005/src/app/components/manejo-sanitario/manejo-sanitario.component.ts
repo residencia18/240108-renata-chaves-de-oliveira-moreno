@@ -3,12 +3,11 @@ import { NgForm } from '@angular/forms';
 import { ManejoService } from '../../services/manejo.service';
 import { ToastrService } from 'ngx-toastr';
 
-//  interface AtividadePlanejada
-interface AtividadePlanejada {
+interface Sessao {
   data: Date;
   descricao: string;
-  animal: string;
-  vacina: string;
+  animais: string[];
+  atividadesPlanejadas: string;
 }
 
 @Component({
@@ -20,26 +19,27 @@ export class ManejoSanitarioComponent {
   mensagem: string = '';
   novaVacina: string = '';
   vacinas: string[] = [];
-
+  sessoes: Sessao[] = [];
 
   constructor(private manejoService: ManejoService, private toastr: ToastrService) {}
 
   submitForm(manejoForm: NgForm) {
-    const atividade: AtividadePlanejada = {
+    const sessao: Sessao = {
       data: manejoForm.value.data,
       descricao: manejoForm.value.descricao,
-      animal: manejoForm.value.animal,
-      //vacina: manejoForm.value.vacina
-      vacina: this.vacinas.join(', ')
+      animais: manejoForm.value.animais.split(',').map((animal: string) => animal.trim()),
+      atividadesPlanejadas: manejoForm.value.atividadesPlanejadas
     };
 
-    this.manejoService.salvarAtividade(atividade).subscribe(response => {
-      console.log('Dados salvos com sucesso!', response);
-      this.toastr.success('Dados salvos com sucesso!'); // Exibe uma mensagem de sucesso
-      manejoForm.resetForm(); // Limpar o formulário após o envio bem-sucedido
-    }, error => {
-      console.error('Erro ao salvar dados:', error);
-      this.toastr.error('Erro ao salvar dados.'); // Exibe uma mensagem de erro
+    this.sessoes.push(sessao); // Adiciona a nova sessão ao array de sessões
+
+    this.manejoService.salvarSessao(sessao).subscribe((response: any) => {
+      console.log('Sessão salva com sucesso!', response);
+      this.toastr.success('Sessão salva com sucesso!'); // Exibe uma mensagem de sucesso
+      manejoForm.resetForm(); // Limpa o formulário após o envio bem-sucedido
+    }, (error: any) => {
+      console.error('Erro ao salvar sessão:', error);
+      this.toastr.error('Erro ao salvar sessão.'); // Exibe uma mensagem de erro
     });
   }
 
@@ -52,3 +52,4 @@ export class ManejoSanitarioComponent {
     this.vacinas.splice(index, 1);
   }
 }
+
