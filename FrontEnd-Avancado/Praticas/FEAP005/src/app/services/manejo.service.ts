@@ -8,10 +8,17 @@ import { environment } from '../../environments/environment';
 })
 export class ManejoService {
   private apiUrl: string = `${environment.firebaseConfig.databaseURL}/manejo.json`;
+  
 
   constructor(private http: HttpClient) {}
 
   salvarAtividade(atividade: any): Observable<any> {
     return this.http.post(this.apiUrl, atividade);
+  }
+
+  salvarSessao(sessao: any): Observable<any> {
+    
+    const url: string = 'https://suinocultura-a16ad-default-rtdb.firebaseio.com/manejo.json';
+    return this.http.post(url, sessao);
   }
 }
