@@ -1,13 +1,20 @@
+<img src="https://cdn-icons-png.flaticon.com/512/3033/3033132.png" alt="Ícone de foguete" width="70" height="70" align="left">
 
+#  Frontend Avançado
 
-#### Este repositório é destinado ao módulo Avançado de FrontEnd Java.
+---
 
+## Descrição
 
-<hr>
-<h4>CONTATO</h4>
+Bem-vindo ao repositório dedicado ao Frontend Avançado!
 
-<h4> Renata Chaves de Oliveira Moreno</h4>
-<h4>📧 e-mail: renatachom.ads@gmail.com</h4>
+## Contato
 
-CEPEDI 🌐 (https://www.cepedi.org.br/)
+Para mais informações ou sugestões, entre em contato:
 
+- **Renata Chaves e Oliveira Moreno**
+  - 📧 E-mail: renatachom.ads@gmail.com
+
+---
+
+Visite o [site do CEPEDI](https://www.cepedi.org.br/) 🌐 para mais informações.
