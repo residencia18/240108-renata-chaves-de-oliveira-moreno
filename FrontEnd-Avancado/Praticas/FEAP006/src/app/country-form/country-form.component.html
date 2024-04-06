@@ -1,0 +1,17 @@
+<header>
+  <!-- Conteúdo do cabeçalho -->
+  <h1>Front End - FEA-P006</h1>
+</header>
+
+<div class="form-container">
+  <div *ngFor="let campo of camposDoForm" class="form-field">
+    <label class="form-label">{{ campo.rotulo }}</label>
+    <input type="{{ campo.tipo }}" name="{{ campo.nome }}" class="form-input" />
+  </div>
+  <button type="submit" class="submit-button">Submit</button>
+</div>
+
+<footer>
+  <!-- Conteúdo do rodapé -->
+  <p>&copy; 2024 Renata CHOM</p>
+</footer>
