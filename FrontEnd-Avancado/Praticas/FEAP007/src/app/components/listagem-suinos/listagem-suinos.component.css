@@ -1,0 +1,40 @@
+.listagem-suinos-container {
+    margin: 20px;
+  }
+  
+  .listagem-suinos-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .listagem-suinos-container table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .listagem-suinos-container th, .listagem-suinos-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .listagem-suinos-container th {
+    background-color: #f2f2f2;
+  }
+  
+  .listagem-suinos-container tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .listagem-suinos-container button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .listagem-suinos-container button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,20 @@
+.logo {
+  margin-bottom: 20px; /* Altere o valor conforme necessário */
+}
+
+.custom-button {
+  background-color: rgb(91, 85, 88); 
+  color: #fff; 
+}
+
+.custom-button:hover {
+  background-color: rgb(91, 85, 88); 
+}
+
+.custom-link {
+  color: rgb(91, 85, 88); 
+}
+
+.custom-link:hover {
+  color: rgb(91, 85, 88); 
+}
