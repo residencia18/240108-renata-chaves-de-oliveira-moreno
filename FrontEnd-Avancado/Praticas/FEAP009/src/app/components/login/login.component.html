@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <div *ngIf="!loading" class="body">
+    <img class="logo" src="../../../assets/img/suino.png" alt="Login">
+
+    <form (ngSubmit)="login()" [formGroup]="loginUsuario">
+      <div class="form-floating mb-3">
+        <input type="email" formControlName="email" class="form-control" placeholder="name@example.com">
+        <label>Email</label>
+        <span *ngIf="loginUsuario.get('email')?.hasError('required') && loginUsuario.get('email')?.touched" class="text-danger errorLabel">
+                    O <strong>email</strong> é obrigatório
+                </span>
+        <span *ngIf="loginUsuario.get('email')?.hasError('email') && loginUsuario.get('email')?.touched" class="text-danger errorLabel">
+                    O <strong>email</strong> é inválido
+                </span>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" formControlName="password" class="form-control" placeholder="Senha">
+        <label>Senha</label>
+        <span *ngIf="loginUsuario.get('password')?.hasError('required') && loginUsuario.get('password')?.touched" class="text-danger errorLabel">
+                    A <strong>senha</strong> é obrigatória
+                </span>
+      </div>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary btn-lg custom-button" [disabled]="loginUsuario.invalid" >Entrar</button>
+      </div>
+      <p class="mt-3 custom-link">Não tem uma conta? <a routerLink="/registrar-usuario" class="custom-link">Registrar</a></p>
+      <a class="mt-3 custom-link" routerLink="/recuperar-password">Recuperar Senha</a>
+    </form>
+  </div>
+  <app-spinner *ngIf="loading"></app-spinner>
+</div>

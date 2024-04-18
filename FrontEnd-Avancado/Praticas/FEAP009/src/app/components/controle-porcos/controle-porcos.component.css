@@ -1,0 +1,46 @@
+/* No seu arquivo de estilo CSS (por exemplo, controle-porcos.component.css) */
+
+/* Estilos para a tabela */
+table {
+  width: 80%; /* Ajuste a largura conforme necessário */
+  margin: 20px auto; /* Centraliza a tabela */
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 6px; /* Diminui o espaçamento interno */
+  text-align: center; /* Centraliza o conteúdo */
+  font-size: 14px; /* Diminui o tamanho da fonte */
+}
+
+th {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Estilos para as linhas ímpares da tabela */
+tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para o campo do brinco */
+#brinco {
+  margin-right: 10px;
+  padding: 6px;
+  font-size: 14px;
+}
+
+/* Estilos para o botão de listar */
+button {
+  padding: 6px 12px; /* Diminui o padding */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px; /* Diminui o tamanho da fonte */
+}
+
+button:hover {
+  background-color: #0056b3;
+}

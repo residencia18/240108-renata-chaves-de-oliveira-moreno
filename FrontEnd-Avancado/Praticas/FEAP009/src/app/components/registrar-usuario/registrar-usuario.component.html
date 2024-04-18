@@ -1,0 +1,37 @@
+<div class="wrapper">
+  <div *ngIf="!loading" class="body">
+    <img class="logo" src="../../../assets/img/login.png" alt="Login">
+    <h1>Registrar-se</h1>
+    <form (ngSubmit)="registrar()" [formGroup]="registrarUsuario">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" formControlName="email" placeholder="name@example.com">
+        <label>Email</label>
+        <span *ngIf="registrarUsuario.get('email')?.hasError('required') && registrarUsuario.get('email')?.touched" class="text-danger errorLabel">
+                    O <strong>email</strong> é obrigatório
+                </span>
+        <span *ngIf="registrarUsuario.get('email')?.hasError('email') && registrarUsuario.get('email')?.touched" class="text-danger errorLabel">
+                    O <strong>email</strong> é inválido
+                </span>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" formControlName="password" placeholder="Senha">
+        <label>Senha</label>
+        <span *ngIf="registrarUsuario.get('password')?.hasError('required') && registrarUsuario.get('password')?.touched" class="text-danger errorLabel">
+                    A <strong>senha</strong> é obrigatória
+                </span>
+        <span *ngIf="registrarUsuario.get('password')?.hasError('minlength') && registrarUsuario.get('password')?.touched" class="text-danger errorLabel">
+                    A <strong>senha</strong> deve ter pelo menos 6 caracteres
+                </span>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" formControlName="repetirPassword" placeholder="Repetir Senha">
+        <label>Repetir Senha</label>
+      </div>
+      <div class="d-grid gap-2 mb-3">
+        <button class="btn btn-primary btn-lg" [disabled]="registrarUsuario.invalid" type="submit">Aceitar</button>
+      </div>
+      <a routerLink="/login">Voltar</a>
+    </form>
+  </div>
+  <app-spinner *ngIf="loading"></app-spinner>
+</div>
