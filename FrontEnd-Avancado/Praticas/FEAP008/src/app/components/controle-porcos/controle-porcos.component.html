@@ -1,0 +1,26 @@
+<app-dashboard></app-dashboard>
+
+<div>
+    <h2>Histórico do Animal</h2>
+    <label for="brinco">Brinco do Animal:</label>
+    <input type="number" id="brinco" [(ngModel)]="brinco">
+    <button (click)="listarHistorico()">Listar</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Brinco</th>
+          <th>Data</th>
+          <th>Atividade</th>
+          <th>Detalhes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of historico">
+          <td>{{ item.brinco }}</td>
+          <td>{{ item.data }}</td>
+          <td>{{ item.atividade }}</td>
+          <td>{{ item.detalhes }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

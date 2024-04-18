@@ -1,0 +1,13 @@
+.logo {
+    width: 200px;
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+  }
+  
+   
+  .background-container > * {
+    position: relative;
+    z-index: 1; 
+  }
+  
