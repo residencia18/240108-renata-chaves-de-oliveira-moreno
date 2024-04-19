@@ -1,0 +1,15 @@
+package com.renatachom.gerencimentotarefas.controller;
+
+// MenuController.java
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class MenuController {
+
+    @GetMapping("/")
+    public String index() {
+        return "index"; // Retorna o nome do arquivo HTML que contém o menu
+    }
+}
