@@ -1,9 +1,9 @@
 -- Inserir funcionários
-INSERT INTO funcionario (nome, email, senha) VALUES ('Renata', 'renatachom.ad@gmail.com', 'senha123');
-INSERT INTO funcionario (nome, email, senha) VALUES ('Maria', 'maria@example.com', 'senha456');
-INSERT INTO funcionario (nome, email, senha) VALUES ('Samuel', 'samu@example.com', 'senha789');
-INSERT INTO funcionario (nome, email, senha) VALUES ('Ana', 'ana@example.com', 'senhaabc');
-INSERT INTO funcionario (nome, email, senha) VALUES ('Gabriel', 'biel@example.com', 'senhaxyz');
+INSERT INTO funcionario (nome, email, senha, cargo) VALUES ('Renata', 'renatachom.ad@gmail.com', 'senha123');
+INSERT INTO funcionario (nome, email, senha, cargo) VALUES ('Maria', 'maria@example.com', 'senha456');
+INSERT INTO funcionario (nome, email, senha, cargo) VALUES ('Samuel', 'samu@example.com', 'senha789');
+INSERT INTO funcionario (nome, email, senha, cargo) VALUES ('Ana', 'ana@example.com', 'senhaabc');
+INSERT INTO funcionario (nome, email, senha, cargo) VALUES ('Gabriel', 'biel@example.com', 'senhaxyz');
 
 -- Inserir tarefas
 INSERT INTO tarefa (titulo, descricao, prioridade, data_inicio, data_conclusao, status, funcionario_id) 
