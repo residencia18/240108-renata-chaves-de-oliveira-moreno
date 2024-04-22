@@ -1,5 +1,6 @@
 package com.renatachom.gerencimentotarefas.entity;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,10 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
+
+
 
 @Entity
 public class Funcionario {
@@ -24,26 +24,18 @@ public class Funcionario {
     private String senha;
     private String cargo;
 
-    @ManyToMany
-    @JoinTable(
-        name = "funcionario_tarefa",
-        joinColumns = @JoinColumn(name = "funcionario_id"),
-        inverseJoinColumns = @JoinColumn(name = "tarefa_id")
-    )
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
     private List<Tarefa> tarefas = new ArrayList<>();
 
+   
     public List<Tarefa> getTarefas() {
         return tarefas;
     }
 
     public void addTarefa(Tarefa tarefa) {
         tarefas.add(tarefa);
-        tarefa.getFuncionario().add(this);
+        tarefa.setFuncionario(this);
     }
-	private void add(Funcionario funcionario) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public Long getId() {
 		return id;
