@@ -1,0 +1,32 @@
+package com.renatachom.gerencimentotarefas;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class FuncionarioTest {
+
+    @Test
+    public void testCriacaoFuncionario() {
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome("João");
+        funcionario.setCargo("Desenvolvedor");
+
+        assertEquals("João", funcionario.getNome());
+        assertEquals("Desenvolvedor", funcionario.getCargo());
+    }
+
+    @Test
+    public void testAdicionarTarefaAoFuncionario() {
+        Funcionario funcionario = new Funcionario();
+        Tarefa tarefa = new Tarefa();
+        tarefa.setDescricao("Implementar recurso X");
+        tarefa.setPrioridade("Alta");
+
+        funcionario.addTarefa(tarefa);
+
+        assertTrue(funcionario.getTarefas().contains(tarefa));
+        assertEquals(funcionario, tarefa.getFuncionario());
+    }
+
+    // Outros métodos de teste...
+}
