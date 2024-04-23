@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TarefaTest" project="gerenciamentotarefas" tests="2" started="2" failures="1" errors="0" ignored="0">
+  <testsuite name="com.renatachom.gerencimentotarefas.TarefaTest" time="0.062" displayname="TarefaTest" uniqueid="[engine:junit-jupiter]/[class:com.renatachom.gerencimentotarefas.TarefaTest]">
+    <testcase name="testAssociacaoFuncionarioTarefa" classname="com.renatachom.gerencimentotarefas.TarefaTest" time="0.062" displayname="testAssociacaoFuncionarioTarefa()" uniqueid="[engine:junit-jupiter]/[class:com.renatachom.gerencimentotarefas.TarefaTest]/[method:testAssociacaoFuncionarioTarefa()]">
+      <failure>
+        <expected>true</expected>
+        <actual>false</actual>
+        org.opentest4j.AssertionFailedError: expected: &lt;true&gt; but was: &lt;false&gt;&#13;
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:40)&#13;
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:35)&#13;
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:179)&#13;
+	at com.renatachom.gerencimentotarefas.TarefaTest.testAssociacaoFuncionarioTarefa(TarefaTest.java:34)&#13;
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+&#13;
+
+      </failure>
+    </testcase>
+    <testcase name="testCriacaoTarefa" classname="com.renatachom.gerencimentotarefas.TarefaTest" time="0.0" displayname="testCriacaoTarefa()" uniqueid="[engine:junit-jupiter]/[class:com.renatachom.gerencimentotarefas.TarefaTest]/[method:testCriacaoTarefa()]"/>
+  </testsuite>
+</testrun>

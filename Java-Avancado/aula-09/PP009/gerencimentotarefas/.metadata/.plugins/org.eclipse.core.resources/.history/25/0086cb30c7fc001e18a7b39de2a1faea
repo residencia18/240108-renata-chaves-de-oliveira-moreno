@@ -1,0 +1,2 @@
+INSERT INTO funcionario (nome, cargo) VALUES ('João', 'Analista');
+INSERT INTO funcionario (nome, cargo) VALUES ('Renata', 'Desenvolvedora');
