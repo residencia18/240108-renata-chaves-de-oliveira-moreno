@@ -1,0 +1,22 @@
+package com.renatachom.gerencimentotarefas;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class TarefaTest {
+
+    @Test
+    public void testCriacaoTarefa() {
+        Tarefa tarefa = new Tarefa("Implementar recurso X", "Alta");
+        assertEquals("Implementar recurso X", tarefa.getDescricao());
+        assertEquals("Alta", tarefa.getPrioridade());
+        assertFalse(tarefa.isConcluida());
+    }
+
+    @Test
+    public void testConcluirTarefa() {
+        Tarefa tarefa = new Tarefa("Implementar recurso Y", "Média");
+        tarefa.concluir();
+        assertTrue(tarefa.isConcluida());
+    }
+}
