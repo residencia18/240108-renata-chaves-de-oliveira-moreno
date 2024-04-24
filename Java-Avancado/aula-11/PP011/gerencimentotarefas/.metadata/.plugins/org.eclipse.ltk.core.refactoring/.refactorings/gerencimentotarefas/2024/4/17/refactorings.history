@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;swagger-ui.html&apos; to &apos;gerencimentotarefas/src/main/resources&apos;&#x0D;&#x0A;- Original project: &apos;gerencimentotarefas&apos;&#x0D;&#x0A;- Destination element: &apos;gerencimentotarefas/src/main/resources&apos;&#x0D;&#x0A;- Original element: &apos;swagger-ui.html&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" destination="/src\/main\/resources=/maven.pomderived=/true=/=/optional=/true=/" element1="src/main/resources/templates/swagger-ui.html" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1713725406731" units="0" version="1.0"/>
+</session>

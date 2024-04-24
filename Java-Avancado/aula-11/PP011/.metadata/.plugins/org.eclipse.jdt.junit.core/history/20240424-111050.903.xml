@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="FuncionarioRepositoryTest" project="gerenciamentotarefas" tests="1" started="0" failures="0" errors="1" ignored="0">
+  <testsuite name="com.renatachom.gerencimentotarefas.FuncionarioRepositoryTest" incomplete="true" displayname="FuncionarioRepositoryTest" uniqueid="[engine:junit-jupiter]/[class:com.renatachom.gerencimentotarefas.FuncionarioRepositoryTest]">
+    <error>java.lang.NoSuchMethodError: 'org.junit.jupiter.api.extension.ExecutableInvoker org.junit.jupiter.api.extension.ExtensionContext.getExecutableInvoker()'&#13;
+	at org.springframework.test.context.junit.jupiter.SpringExtension.registerMethodInvoker(SpringExtension.java:381)&#13;
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:132)&#13;
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+	Suppressed: java.lang.NoSuchMethodError: 'org.junit.jupiter.api.extension.ExecutableInvoker org.junit.jupiter.api.extension.ExtensionContext.getExecutableInvoker()'&#13;
+		at org.springframework.test.context.junit.jupiter.SpringExtension.registerMethodInvoker(SpringExtension.java:381)&#13;
+		at org.springframework.test.context.junit.jupiter.SpringExtension.afterAll(SpringExtension.java:143)&#13;
+		at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)&#13;
+		... 1 more&#13;
+&#13;
+</error>
+    <testcase name="testSalvarFuncionario" classname="com.renatachom.gerencimentotarefas.FuncionarioRepositoryTest" incomplete="true" displayname="testSalvarFuncionario()" uniqueid="[engine:junit-jupiter]/[class:com.renatachom.gerencimentotarefas.FuncionarioRepositoryTest]/[method:testSalvarFuncionario()]"/>
+  </testsuite>
+</testrun>

@@ -1,0 +1,40 @@
+package com.renatachom.gerencimentotarefas.util;
+
+import java.util.Random;
+
+public class CPFGenerator {
+
+    public static String generateCPF() {
+        Random random = new Random();
+        StringBuilder builder = new StringBuilder();
+
+        // Gera os primeiros 9 dígitos do CPF
+        for (int i = 0; i < 9; i++) {
+            builder.append(random.nextInt(10));
+        }
+
+        // Gera os dígitos verificadores do CPF
+        String cpfParcial = builder.toString();
+        int[] cpfDigits = new int[9];
+        for (int i = 0; i < 9; i++) {
+            cpfDigits[i] = Character.getNumericValue(cpfParcial.charAt(i));
+        }
+        builder.append(generateVerifierDigit(cpfDigits));
+        builder.append(generateVerifierDigit(cpfDigits));
+
+        // Formata o CPF
+        return String.format("%s.%s.%s-%s", builder.substring(0, 3), builder.substring(3, 6),
+                builder.substring(6, 9), builder.substring(9));
+    }
+
+    private static int generateVerifierDigit(int[] cpfDigits) {
+        int sum = 0;
+        int weight = cpfDigits.length + 1;
+        for (int digit : cpfDigits) {
+            sum += digit * weight;
+            weight--;
+        }
+        int remainder = sum % 11;
+        return (remainder < 2) ? 0 : (11 - remainder);
+    }
+}

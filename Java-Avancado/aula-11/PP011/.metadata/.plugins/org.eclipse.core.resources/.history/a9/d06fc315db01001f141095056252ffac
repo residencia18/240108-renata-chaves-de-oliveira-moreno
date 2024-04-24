@@ -1,0 +1,54 @@
+package com.renatachom.gerencimentotarefas;
+
+package com.renatachom.gerencimentotarefas;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.github.javafaker.Faker;
+import com.renatachom.gerencimentotarefas.entity.Funcionario;
+import com.renatachom.gerencimentotarefas.entity.Tarefa;
+import com.renatachom.gerencimentotarefas.entity.enums.PrioridadeTarefa;
+
+public class FuncionarioTest {
+
+    private Funcionario funcionario;
+    private Faker faker;
+
+    @BeforeEach
+    public void setUp() {
+        funcionario = new Funcionario();
+        faker = new Faker();
+    }
+
+    @Test
+    public void testCriacaoFuncionarioComNovosAtributos() {
+        funcionario.setNome(faker.name().fullName());
+        funcionario.setCargo(faker.job().title());
+        funcionario.setTelefone(faker.phoneNumber().cellPhone()); // Novo atributo: telefone
+        funcionario.setEndereco(faker.address().fullAddress()); // Novo atributo: endereco
+        funcionario.setDepartamento(faker.company().industry()); // Novo atributo: departamento
+
+        assertEquals(funcionario.getNome(), funcionario.getNome());
+        assertEquals(funcionario.getCargo(), funcionario.getCargo());
+        assertEquals(funcionario.getTelefone(), funcionario.getTelefone());
+        assertEquals(funcionario.getEndereco(), funcionario.getEndereco());
+        assertEquals(funcionario.getDepartamento(), funcionario.getDepartamento());
+    }
+
+    @Test
+    public void testAdicionarTarefaAoFuncionario() {
+        Tarefa tarefa = new Tarefa();
+        tarefa.setDescricao(faker.lorem().sentence());
+        tarefa.setPrioridade(PrioridadeTarefa.ALTA);
+
+        funcionario.addTarefa(tarefa);
+
+        assertTrue(funcionario.getTarefas().contains(tarefa));
+        assertTrue(tarefa.getFuncionario() == funcionario);
+    }
+}
