@@ -1,0 +1,32 @@
+@Entity
+@Data
+public class Tarefa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    // Outros atributos
+    
+    @ManyToMany
+    @JoinTable(
+        name = "tarefa_tag",
+        joinColumns = @JoinColumn(name = "tarefa_id"),
+        inverseJoinColumns = @JoinColumn(name = "tag_id")
+    )
+    private List<Tag> tags = new ArrayList<>();
+}
+
+@Entity
+@Data
+public class Tag {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String nome;
+    
+    // Outros atributos
+    
+    @ManyToMany(mappedBy = "tags")
+    private List<Tarefa> tarefas = new ArrayList<>();
+}

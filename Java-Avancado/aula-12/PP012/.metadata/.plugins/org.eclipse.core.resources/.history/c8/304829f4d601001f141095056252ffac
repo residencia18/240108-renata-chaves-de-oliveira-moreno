@@ -1,0 +1,41 @@
+package com.renatachom.gerencimentotarefas.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.*;
+
+import lombok.Data;
+
+@Entity
+@Data
+public class Funcionario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
+    private String nome;
+    private String cpf;
+    private String email;
+    private String senha;
+    private String cargo;
+    
+    // Novos atributos
+    private String telefone;
+    private String endereco;
+    private String departamento;
+
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    private List<FuncionarioTarefa> funcionarioTarefas = new ArrayList<>();
+
+    // Métodos para manipular a lista funcionarioTarefas
+    public void addFuncionarioTarefa(FuncionarioTarefa funcionarioTarefa) {
+        funcionarioTarefas.add(funcionarioTarefa);
+        funcionarioTarefa.setFuncionario(this);
+    }
+
+    public void removeFuncionarioTarefa(FuncionarioTarefa funcionarioTarefa) {
+        funcionarioTarefas.remove(funcionarioTarefa);
+        funcionarioTarefa.setFuncionario(null);
+    }
+}

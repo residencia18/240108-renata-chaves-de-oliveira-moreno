@@ -1,0 +1,32 @@
+package com.renatachom.gerencimentotarefas;
+
+package com.renatachom.gerencimentotarefas.repository;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import com.renatachom.gerencimentotarefas.entity.Funcionario;
+
+@DataJpaTest
+public class FuncionarioRepositoryTest {
+
+    @Autowired
+    private FuncionarioRepository funcionarioRepository;
+
+    @Test
+    public void testSalvarFuncionario() {
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome("Teste");
+        funcionario.setCargo("Testador");
+
+        Funcionario funcionarioSalvo = funcionarioRepository.save(funcionario);
+        assertNotNull(funcionarioSalvo.getId());
+    }
+
+    // Outros testes para operações de CRUD...
+}

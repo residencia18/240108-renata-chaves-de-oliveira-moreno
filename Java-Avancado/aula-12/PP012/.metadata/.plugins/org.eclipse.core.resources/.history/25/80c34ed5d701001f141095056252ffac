@@ -1,0 +1,47 @@
+package com.renatachom.gerencimentotarefas.service;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Service
+public class FuncionarioService {
+    private static final Logger logger = LoggerFactory.getLogger(FuncionarioService.class);
+
+    @Autowired
+    private FuncionarioRepository funcionarioRepository;
+
+    public List<Funcionario> listarFuncionarios() {
+        logger.info("Listando todos os funcionários");
+        return funcionarioRepository.findAll();
+    }
+
+    public Funcionario adicionarFuncionario(Funcionario funcionario) {
+        logger.info("Adicionando funcionário: {}", funcionario);
+        return funcionarioRepository.save(funcionario);
+    }
+
+    public Funcionario atualizarFuncionario(Long id, Funcionario funcionarioAtualizado) {
+        logger.info("Atualizando funcionário com ID: {}", id);
+        Funcionario funcionario = funcionarioRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionario não encontrado com o id: " + id));
+
+        funcionario.setNome(funcionarioAtualizado.getNome());
+        funcionario.setCargo(funcionarioAtualizado.getCargo());
+
+        return funcionarioRepository.save(funcionario);
+    }
+
+    public void excluirFuncionario(Long id) {
+        logger.info("Excluindo funcionário com ID: {}", id);
+        Funcionario funcionario = funcionarioRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionario não encontrado com o id: " + id));
+
+        funcionarioRepository.delete(funcionario);
+    }
+
+    public Funcionario buscarFuncionarioPorId(Long id) {
+        logger.info("Buscando funcionário por ID: {}", id);
+        return funcionarioRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Funcionario não encontrado com o id: " + id));
+    }
+}
