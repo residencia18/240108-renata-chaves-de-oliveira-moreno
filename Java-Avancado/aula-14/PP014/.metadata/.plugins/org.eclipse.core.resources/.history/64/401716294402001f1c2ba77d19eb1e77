@@ -1,0 +1,49 @@
+package com.renatachom.gerencimentotarefas;
+
+package com.renatachom.gerencimentotarefas.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.renatachom.gerencimentotarefas.entity.Funcionario;
+import com.renatachom.gerencimentotarefas.service.FuncionarioService;
+
+@WebMvcTest(FuncionarioController.class)
+@AutoConfigureMockMvc
+public class FuncionarioControllerTest {
+
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
+    private FuncionarioService funcionarioService;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Test
+    public void testSalvarFuncionario() throws Exception {
+        Funcionario funcionario = new Funcionario();
+        funcionario.setNome("Teste");
+        funcionario.setCargo("Testador");
+
+        mockMvc.perform(MockMvcRequestBuilders.post("/funcionarios")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(funcionario)))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+
+        // Verifique se o método de serviço apropriado foi chamado com os parâmetros corretos
+    }
+
+    // Outros testes para endpoints do controlador...
+}
