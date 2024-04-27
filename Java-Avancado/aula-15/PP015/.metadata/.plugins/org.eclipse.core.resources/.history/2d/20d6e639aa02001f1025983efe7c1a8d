@@ -1,0 +1,39 @@
+package com.renatachom.gerencimentotarefas;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.web.server.ResponseStatusException;
+
+@ExtendWith(MockitoExtension.class)
+public class FuncionarioServiceTest {
+
+    @Mock
+    private FuncionarioRepository funcionarioRepository;
+
+    @InjectMocks
+    private FuncionarioService funcionarioService;
+
+    @Test
+    public void testListarFuncionarios() {
+        // Mockando o comportamento do repositório
+        List<Funcionario> funcionariosMock = Arrays.asList(new Funcionario(), new Funcionario());
+        when(funcionarioRepository.findAll()).thenReturn(funcionariosMock);
+
+        // Testando o serviço
+        List<Funcionario> funcionarios = funcionarioService.listarFuncionarios();
+
+        // Verificando se a lista retornada pelo serviço é a mesma do mock
+        assertEquals(funcionariosMock.size(), funcionarios.size());
+    }
+
+    // Adicione aqui os demais testes para os outros métodos da classe FuncionarioService
+}

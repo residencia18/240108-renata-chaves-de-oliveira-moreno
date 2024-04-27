@@ -1,0 +1,39 @@
+package com.renatachom.gerencimentotarefas.config;
+
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.servlet.ModelAndView;
+
+public class ApiVersionInterceptor implements HandlerInterceptor {
+
+    private static final String API_VERSION_HEADER = "X-API-Version";
+    private static final String CURRENT_API_VERSION = "1"; // Sua versão atual da API
+
+    @Override
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
+        String requestedApiVersion = request.getHeader(API_VERSION_HEADER);
+        if (requestedApiVersion == null || !requestedApiVersion.equals(CURRENT_API_VERSION)) {
+            response.setStatus(HttpStatus.BAD_REQUEST.value());
+            response.getWriter().write("Unsupported API version");
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+            ModelAndView modelAndView) throws Exception {
+        // Não é necessário implementar
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler,
+            Exception ex) throws Exception {
+        // Não é necessário implementar
+    }
+}

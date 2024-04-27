@@ -1,0 +1,22 @@
+package com.renatachom.gerencimentotarefas;
+
+puimport org.junit.Test;
+import static org.junit.Assert.*;
+
+public class FuncionarioTest {
+
+    @Test
+    public void testCriacaoFuncionario() {
+        Funcionario funcionario = new Funcionario("João", "Desenvolvedor");
+        assertEquals("João", funcionario.getNome());
+        assertEquals("Desenvolvedor", funcionario.getCargo());
+    }
+    
+    @Test
+    public void testAlteracaoCargoFuncionario() {
+        Funcionario funcionario = new Funcionario("Maria", "Analista");
+        funcionario.setCargo("Gerente");
+        assertEquals("Gerente", funcionario.getCargo());
+    }
+}
+

@@ -1,0 +1,28 @@
+spring.application.name=gerencimentotarefas
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/gerenciamentotarefas
+spring.datasource.username=postgres
+spring.datasource.password=7783
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=update
+
+server.port=8081
+
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+
+#LOG
+logging.level.root=INFO
+logging.level.com.renatachom.gerencimentotarefas=DEBUG
+logging.file=logs/gerencimentotarefas.log
+
+
+log4j.rootLogger=INFO, stdout
+
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+
+
+# Configuração para suprimir mensagens de informação sobre detecção de configuração padrão durante testes
+logging.level.org.springframework.test.context.support.AnnotationConfigContextLoaderUtils=ERROR

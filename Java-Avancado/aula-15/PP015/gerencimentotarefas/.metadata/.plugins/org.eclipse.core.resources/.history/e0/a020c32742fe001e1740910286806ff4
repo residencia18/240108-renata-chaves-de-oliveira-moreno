@@ -1,0 +1,32 @@
+package com.renatachom.gerencimentotarefas.entity;
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Funcionario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String nome;
+
+    @OneToMany(mappedBy = "funcionario", cascade = CascadeType.ALL)
+    private List<Tarefa> tarefas = new ArrayList<>();
+
+    // Getters e Setters
+
+    public List<Tarefa> getTarefas() {
+        return tarefas;
+    }
+
+    public void addTarefa(Tarefa tarefa) {
+        tarefas.add(tarefa);
+        tarefa.setFuncionario(this);
+    }
+}

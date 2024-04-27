@@ -1,0 +1,72 @@
+package com.renatachom.gerencimentotarefas.service;
+
+import java.util.List;
+
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.github.javafaker.Faker;
+import com.renatachom.gerencimentotarefas.entity.Tarefa;
+import com.renatachom.gerencimentotarefas.entity.enums.PrioridadeTarefa;
+import com.renatachom.gerencimentotarefas.repository.TarefaRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Service
+public class TarefaService {
+
+    private static final Logger logger = LoggerFactory.getLogger(TarefaService.class);
+    private final Faker faker = new Faker(); 
+
+    @Autowired
+    private TarefaRepository tarefaRepository;
+
+    public List<Tarefa> listarTarefas() {
+        logger.info("Listando todas as tarefas");
+        return tarefaRepository.findAll();
+    }
+
+    public Tarefa buscarTarefaPorId(Long id) {
+        logger.info("Buscando tarefa por ID: {}", id);
+        return tarefaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tarefa não encontrada com o ID: " + id));
+    }
+
+    public Tarefa adicionarTarefa(Tarefa tarefa) {
+        logger.info("Adicionando uma nova tarefa: {}", tarefa);
+
+        // Usar o Faker para gerar dados fictícios para a tarefa
+        tarefa.setTitulo(faker.lorem().sentence());
+        tarefa.setDescricao(faker.lorem().paragraph());
+        tarefa.setPrioridade(PrioridadeTarefa.values()[faker.number().numberBetween(0, PrioridadeTarefa.values().length)]);
+       
+        // Log dos atributos gerados pelo JavaFaker
+        logger.info("Título gerado: {}", tarefa.getTitulo());
+        logger.info("Descrição gerada: {}", tarefa.getDescricao());
+
+        return tarefaRepository.save(tarefa);
+    }
+
+    public Tarefa atualizarTarefa(Long id, Tarefa tarefaAtualizada) {
+        logger.info("Atualizando tarefa com ID: {}", id);
+        Tarefa tarefa = buscarTarefaPorId(id);
+        tarefa.setDescricao(tarefaAtualizada.getDescricao());
+        tarefa.setConcluida(tarefaAtualizada.isConcluida());
+        return tarefaRepository.save(tarefa);
+    }
+
+    public void excluirTarefa(Long id) {
+        logger.info("Excluindo tarefa com ID: {}", id);
+        Tarefa tarefa = buscarTarefaPorId(id);
+        tarefaRepository.delete(tarefa);
+    }
+
+    public Page<Tarefa> listarTarefasPaginadas(int pageNo, int pageSize, String sortBy) {
+        Pageable pageable = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
+        return tarefaRepository.findAll(pageable);
+    }
+}
