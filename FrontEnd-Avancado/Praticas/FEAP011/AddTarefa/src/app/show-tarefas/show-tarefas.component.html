@@ -1,0 +1,15 @@
+<ul class="task-list">
+    <ng-container *ngFor="let tarefa of tarefas">
+        <li class="task-item">
+            <ng-container *ngIf="tarefaSelecionadaId !== tarefa.id; else editMode">
+                <span>{{ tarefa.descricao }}</span>
+                <button (click)="removeTarefa(tarefa.id)" class="remove-button">Remover</button>
+                <button (click)="selecionarTarefa(tarefa.id)" class="update-button">Atualizar</button>
+            </ng-container>
+            <ng-template #editMode>
+                <input type="text" [(ngModel)]="novaDescricao" placeholder="Nova descrição">
+                <button (click)="salvarAtualizacao()" class="save-button">Salvar</button>
+            </ng-template>
+        </li>
+    </ng-container>
+</ul>
