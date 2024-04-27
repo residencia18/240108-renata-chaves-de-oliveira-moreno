@@ -1,0 +1,55 @@
+package com.renatachom.gerencimentotarefas.util;
+
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+public class CPFGeneratorTest {
+
+    @Test
+    public void testGenerateCPF() {
+        String cpf = CPFGenerator.generateCPF();
+        // Verifica se o CPF gerado possui o formato correto
+        assertTrue(cpf.matches("\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}"));
+        // Verifica se o CPF é válido
+        assertTrue(isValidCPF(cpf));
+    }
+
+    private boolean isValidCPF(String cpf) {
+        // Remove os caracteres de formatação do CPF
+        cpf = cpf.replaceAll("[^0-9]", "");
+
+        if (cpf.length() != 11)
+            return false;
+
+        int[] digits = new int[11];
+        for (int i = 0; i < 11; i++) {
+            digits[i] = Character.getNumericValue(cpf.charAt(i));
+        }
+
+        int sum = 0;
+        int weight = 10;
+        for (int i = 0; i < 9; i++) {
+            sum += digits[i] * weight;
+            weight--;
+        }
+
+        int remainder = sum % 11;
+        int firstDigitVerifier = (remainder < 2) ? 0 : (11 - remainder);
+
+        if (digits[9] != firstDigitVerifier)
+            return false;
+
+        sum = 0;
+        weight = 11;
+        for (int i = 0; i < 10; i++) {
+            sum += digits[i] * weight;
+            weight--;
+        }
+
+        remainder = sum % 11;
+        int secondDigitVerifier = (remainder < 2) ? 0 : (11 - remainder);
+
+        return digits[10] == secondDigitVerifier;
+    }
+}

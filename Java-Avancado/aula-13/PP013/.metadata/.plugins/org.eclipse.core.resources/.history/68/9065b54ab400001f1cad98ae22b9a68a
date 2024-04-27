@@ -1,0 +1,21 @@
+package com.renatachom.gerencimentotarefas.entity;
+
+
+import jakarta.persistence.*;
+
+@Entity
+public class AtribuicaoTarefa {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "funcionario_id")
+    private Funcionario funcionario;
+
+    @ManyToOne
+    @JoinColumn(name = "tarefa_id")
+    private Tarefa tarefa;
+
+    // Construtores, getters e setters
+}
