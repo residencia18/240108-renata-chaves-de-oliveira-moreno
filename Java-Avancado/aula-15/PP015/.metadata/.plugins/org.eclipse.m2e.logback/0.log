@@ -663,3 +663,5 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: end tag nam
 2024-04-27 17:18:52,847 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
 2024-04-27 17:21:14,074 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-04-27 17:21:14,090 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\test\resources to target\test-classes
+2024-04-27 17:25:08,303 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped oejs.Server@28940a17{STOPPING}[12.0.6,sto=0]
+2024-04-27 17:25:08,307 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@9711455{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
