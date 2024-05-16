@@ -1,0 +1,73 @@
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .task-item {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #ffebcd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    font-size: 1.2em;
+    color: #ff7f50;
+    transition: all 0.3s ease;
+  }
+  
+  .task-item:hover {
+    background-color: #ffe4b5;
+  }
+  
+  .task-item:active {
+    background-color: #ffdead;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+  }
+
+  .remove-button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    color: #fff;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  .remove-button:hover {
+    background-color: #cc0000;
+  }
+  
+  .remove-button:active {
+    background-color: #990000;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+  }
+.update-button,
+.save-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  font-size: 0.8em;
+  color: #fff;
+  background-color: #4CAF50; /* verde */
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.update-button:hover,
+.save-button:hover {
+  background-color: #45a049; /* verde escuro */
+}
+
+.update-button:active,
+.save-button:active {
+  background-color: #36733e; /* verde mais escuro */
+  box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+}
