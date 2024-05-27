@@ -5,12 +5,6 @@ Bem-vindo ao Manual do Usuário da aplicação BovinosCultura! Este documento fo
 **Equipe: Bovilhas**  
 **Desenvolvedores:** Renata Moreno, Daniel Monteiro e Leonardo Ribeiro
 
-## Tabela de Conteúdos
-...
-
-
-Bem-vindo ao Manual do Usuário da aplicação GadosCultura! Este documento foi criado para ajudá-lo a entender e utilizar as principais funcionalidades disponíveis na plataforma.
-
 **Acesse a aplicação aqui: [BovinosCultura](https://gadoscultura-app.web.app/)**
 
 ## Tabela de Conteúdos
