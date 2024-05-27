@@ -1,0 +1,15 @@
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  right: 80vh;
+}
+
+.custom-nav li {
+  margin-right: 20px; /* Ajuste este valor conforme necessário */
+}
+
+.custom-nav li:last-child {
+  margin-right: 0; /* Remove o margin-right do último item */
+}

@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/Bovinoscultura-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+<div class="container">
+  <h2>Editar Gado</h2>
+  <form [formGroup]="gadoForm">
+    <div class="mb-3">
+      <label for="anilhaAnimalEdit" class="form-label">Anilha do animal:</label>
+      <input type="number" class="form-control" id="anilhaAnimalEdit" formControlName="anilhaAnimal">
+    </div>
+    <div class="mb-3">
+      <label for="anilhaPaiEdit" class="form-label">Anilha do pai:</label>
+      <input type="number" class="form-control" id="anilhaPaiEdit" formControlName="anilhaPai">
+    </div>
+    <div class="mb-3">
+      <label for="anilhaMaeEdit" class="form-label">Anilha da mãe:</label>
+      <input type="number" class="form-control" id="anilhaMaeEdit" formControlName="anilhaMae">
+    </div>
+    <div class="mb-3">
+      <label for="dataNascimentoEdit" class="form-label">Data de Nascimento:</label>
+      <input type="date" class="form-control" id="dataNascimentoEdit" formControlName="dataNascimento">
+    </div>
+    <div class="mb-3">
+      <label for="dataSaidaEdit" class="form-label">Data da saída:</label>
+      <input type="date" class="form-control" id="dataSaidaEdit" formControlName="dataSaida">
+    </div>
+    <div class="mb-3">
+      <label for="statusEdit" class="form-label">Status:</label>
+      <select id="statusEdit" class="form-select" formControlName="status">
+        <option value="ativo">Ativo</option>
+        <option value="vendido">Vendido</option>
+        <option value="morto">Morto</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="sexoEdit" class="form-label">Sexo:</label>
+      <select id="sexoEdit" class="form-select" formControlName="sexo">
+        <option value="M">Macho</option>
+        <option value="F">Fêmea</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="salvarEdicao()">Salvar</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelarEdicao()">Cancelar</button>
+  </form>
+</div>

@@ -1,0 +1,8 @@
+/* Exemplo de variáveis CSS */
+:root {
+    --primary-color: #7001FD;
+    --text-color: #555555;
+    --secondary-color: #1E2772;
+    --gray-bg: #b4d2ff;
+    --gray-secondary-bg: #F1F3F6;
+}

@@ -1,0 +1,127 @@
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 mb-md-0 custom-nav">
+      <li><a routerLink="/dashboard" class="nav-link px-3 link-dark"><i class="fas fa-home me-1"></i> Início</a></li>
+      <li><a routerLink="/cadastro-gado" class="nav-link px-3 link-dark"><i class="fas fa-cow me-1"></i> Cadastro de Bovinos</a></li>
+      <li><a routerLink="/cadastro-peso" class="nav-link px-3 link-dark"><i class="fas fa-weight me-1"></i> Cadastro Peso</a></li>
+      <li><a routerLink="/listagem-gado" class="nav-link px-3 link-dark"><i class="fas fa-list me-1"></i> Listar Bovinos</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <button type="button" class="btn bg-info me-2" (click)="logOut()"><i class="fas fa-sign-out-alt me-1"></i> Sair</button>
+    </div>
+  </header>
+
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-dark">
+    <h2>Listagem de Gado</h2>
+
+    <div class="mb-3">
+      <label for="filtroAnilhaPai" class="form-label">Filtrar por anilha do pai:</label>
+      <input type="text" class="form-control" id="filtroAnilhaPai" [(ngModel)]="filtroAnilhaPai">
+      <button class="btn btn-primary mt-2" (click)="pesquisarPorAnilhaPai()">Pesquisar</button>
+    </div>
+
+    <div class="table-responsive">
+      <div class="scrollable-table">
+        <p class="text-center d-block d-sm-none">Para uma melhor visualização, gire o dispositivo ou utilize um dispositivo com uma tela maior.</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Anilha do Animal</th>
+              <th>Anilha do Pai</th>
+              <th>Anilha da Mãe</th>
+              <th>Data de Nascimento</th>
+              <th>Data de Saída</th>
+              <th>Status</th>
+              <th>Sexo</th>
+
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let gado of gadoFiltrado">
+              <td>{{ gado.anilhaAnimal }}</td>
+              <td>{{ gado.anilhaPai }}</td>
+              <td>{{ gado.anilhaMae }}</td>
+              <td>{{ gado.dataNascimento | date }}</td>
+              <td>{{ gado.dataSaida | date }}</td>
+              <td>{{ gado.status }}</td>
+              <td>{{ gado.sexo }}</td>
+
+              <td>
+                    <button class="btn bg-info me-2" (click)="editarGado(gado)">Editar</button>
+                <button class="btn btn-danger" (click)="deletarGado(gado)">Deletar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="gadoSelecionada">
+      <h2>Editar Gado</h2>
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="anilhaAnimalEdit" class="form-label">Anilha do animal:</label>
+              <input type="number" class="form-control" id="anilhaAnimalEdit" name="anilhaAnimalEdit" [(ngModel)]="gadoSelecionada.anilhaAnimal">
+            </div>
+            <div class="mb-3">
+              <label for="anilhaPaiEdit" class="form-label">Anilha do pai:</label>
+              <input type="number" class="form-control" id="anilhaPaiEdit" name="anilhaPaiEdit" [(ngModel)]="gadoSelecionada.anilhaPai">
+            </div>
+            <div class="mb-3">
+              <label for="anilhaMaeEdit" class="form-label">Anilha da mãe:</label>
+              <input type="number" class="form-control" id="anilhaMaeEdit" name="anilhaMaeEdit" [(ngModel)]="gadoSelecionada.anilhaMae">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="dataNascimentoEdit" class="form-label">Data de Nascimento:</label>
+              <input type="date" class="form-control" id="dataNascimentoEdit" name="dataNascimentoEdit" [(ngModel)]="gadoSelecionada.dataNascimento">
+            </div>
+            <div class="mb-3">
+              <label for="dataSaidaEdit" class="form-label">Data da saída:</label>
+              <input type="date" class="form-control" id="dataSaidaEdit" name="dataSaidaEdit" [(ngModel)]="gadoSelecionada.dataSaida">
+            </div>
+            <div class="mb-3">
+              <label for="statusEdit" class="form-label">Status:</label>
+              <select id="statusEdit" class="form-select" name="statusEdit" [(ngModel)]="gadoSelecionada.status">
+                <option value="ativo">Ativo</option>
+                <option value="vendido">Vendido</option>
+                <option value="morto">Morto</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="sexoEdit" class="form-label">Sexo:</label>
+              <select id="sexoEdit" class="form-select" name="sexoEdit" [(ngModel)]="gadoSelecionada.sexo">
+                <option value="M">Macho</option>
+                <option value="F">Fêmea</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn bg-info" (click)="salvarEdicao()">Salvar</button>
+            <span style="margin: 0 5px;"></span>
+            <button type="button" class="btn btn-warning" (click)="voltarListaGado()">Voltar à lista de Gado</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <div class="container">
+    <footer class="text-end position-fixed bottom-0 start-0 w-100 p-3 bg-light">
+      <p class="m-0">Desenvolvido por Renata Chaves, Daniel Monteiro e Leonardo Ribeiro</p>
+    </footer>
+  </div>
+</div>
