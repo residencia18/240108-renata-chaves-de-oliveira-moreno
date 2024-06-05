@@ -1,0 +1,59 @@
+package com.example.atividades.atividade15;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.Test;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.*;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+
+public class TestDetectTextImage {
+
+    @Test
+    public void testSaveResultToTextFile() throws IOException {
+        // Create a list of text detections for testing
+        List<TextDetection> textDetections = List.of(
+            TextDetection.builder().detectedText("Text1").confidence(99.0f).id(1).parentId(0).type(TextTypes.WORD).build(),
+            TextDetection.builder().detectedText("Text2").confidence(98.0f).id(2).parentId(1).type(TextTypes.LINE).build()
+        );
+        
+        // Create a temporary directory for testing
+        Path tempDir = Files.createTempDirectory("test-results");
+        
+        // Create an instance of DetectTextImage for testing
+        DetectTextImage detectTextImage = new DetectTextImage();
+        
+        // Set up a temporary file path for testing
+        Path tempFilePath = tempDir.resolve("test-result.txt");
+        
+        // Call the saveResultToTextFile method with the list of text detections and the temporary file path
+        detectTextImage.saveResultToTextFile(textDetections, tempFilePath.toString());
+        
+        // Verify if the result was saved correctly
+        assertTrue(Files.exists(tempFilePath)); // Check if the file exists
+        
+        // Read the content of the saved file and verify if it matches the expected content
+        List<String> lines = Files.readAllLines(tempFilePath);
+        assertEquals(5, lines.size()); // Expected number of lines (5 lines for each text detection)
+        assertEquals("Detected: Text1", lines.get(0));
+        assertEquals("Confidence: 99.0", lines.get(1));
+        assertEquals("Id: 1", lines.get(2));
+        assertEquals("Parent Id: 0", lines.get(3));
+        assertEquals("Type: WORD", lines.get(4));
+        
+        assertEquals("Detected: Text2", lines.get(5));
+        assertEquals("Confidence: 98.0", lines.get(6));
+        assertEquals("Id: 2", lines.get(7));
+        assertEquals("Parent Id: 1", lines.get(8));
+        assertEquals("Type: LINE", lines.get(9));
+        
+        // TODO: Add more assertions to verify the content of the saved file if needed
+    }
+}
+

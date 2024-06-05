@@ -1,0 +1,16 @@
+package com.example.atividades.atividade01;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+public class AddTest {
+
+    @Test
+    public void testAdd() {
+        Add add = new Add();
+        assertEquals(3, add.add(1, 2));
+        assertEquals(0, add.add(-1, 1));
+        assertEquals(-3, add.add(-1, -2));
+        assertEquals(7, add.add(3, 4));
+    }
+}

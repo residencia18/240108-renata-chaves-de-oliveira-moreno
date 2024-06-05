@@ -1,0 +1,28 @@
+package com.example.atividades.atividade14;
+
+import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.Test;
+
+public class TestEventHandler {
+
+    @Test
+    public void testHandleEvent() {
+        // Crie um mock para EmailService
+        EmailService mockEmailService = mock(EmailService.class);
+
+        // Crie uma instância de EventHandler com o mock EmailService
+        EventHandler eventHandler = new EventHandler(mockEmailService);
+
+        // Defina os argumentos esperados para a chamada do método sendEmail
+        String recipient = "test@example.com";
+        String subject = "Event Occurred";
+        String event = "Some event";
+
+        // Chame o método handleEvent com os argumentos esperados
+        eventHandler.handleEvent(recipient);
+
+        // Verifique se o método sendEmail de EmailService foi chamado corretamente
+        verify(mockEmailService, times(1)).sendEmail(recipient, subject, event);
+    }
+}
+

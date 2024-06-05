@@ -1,0 +1,89 @@
+package com.example.atividades.atividade15;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.io.TempDir;
+import static org.mockito.Mockito.*;
+
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.*;
+
+import java.io.IOException;
+import java.nio.file.Path;
+
+public class TestDetectTextImage {
+
+    @Test
+    public void testDetectTextLabels() throws IOException {
+        // Create a mock RekognitionClient
+        RekognitionClient mockRekClient = mock(RekognitionClient.class);
+
+        // Create an instance of DetectTextImage with the mock RekognitionClient
+        DetectTextImage detectTextImage = new DetectTextImage("data/java.jpg", mockRekClient);
+
+        // Simulate the behavior of the detectText method to resolve the ambiguity
+        when(mockRekClient.detectText(any(DetectTextRequest.class)))
+            .thenReturn(DetectTextResponse.builder().build());
+
+        // Call the detectTextLabels method with a test image
+        String resultFilePath = "data/test-result.txt";
+        detectTextImage.detectTextLabels(resultFilePath);
+
+        // Verify if the detectText method of RekognitionClient was called correctly
+        verify(mockRekClient, times(1)).detectText(any(DetectTextRequest.class));
+    }
+
+    @Test
+    public void testDefaultConstructor() {
+        // Create an instance of the default constructor
+        DetectTextImage detectTextImage = new DetectTextImage();
+
+        // Verify if the fields were initialized correctly
+        assertEquals("data/img-example-for-aws-task.jpg", detectTextImage.sourceImage);
+        assertEquals(Region.US_WEST_2, detectTextImage.region);
+        assertNotNull(detectTextImage.rekClient); // Verify if rekClient is not null
+    }
+
+    @Test
+    public void testDetectTextLabelsIOException() throws IOException {
+        // Create a mock RekognitionClient
+        RekognitionClient mockRekClient = mock(RekognitionClient.class);
+
+        // Create an instance of DetectTextImage with the mock RekognitionClient
+        DetectTextImage detectTextImage = new DetectTextImage("data/java.jpg", mockRekClient);
+
+        // Simulate IOException when writing to the result file
+        String resultFilePath = "data/nonexistent-folder/test-result.txt";
+
+        // Ensure that IOException is thrown and caught properly
+        assertThrows(IOException.class, () -> {
+            detectTextImage.detectTextLabels(resultFilePath);
+        });
+
+        // Verify if the detectText method of RekognitionClient was not called
+        verify(mockRekClient, never()).detectText(any(DetectTextRequest.class));
+    }
+    private void saveResultToTextFile(List<TextDetection> textCollection, String fileName) throws IOException {
+        // Verifica se a lista de detecções de texto está vazia
+        if (textCollection.isEmpty()) {
+            System.out.println("No text detections to save.");
+            return;
+        }
+
+        // Cria um BufferedWriter para escrever no arquivo
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            // Itera sobre cada detecção de texto e escreve suas informações no arquivo
+            for (TextDetection text : textCollection) {
+                writer.write("Detected: " + text.detectedText() + "\n");
+                writer.write("Confidence: " + text.confidence().toString() + "\n");
+                writer.write("Id: " + text.id() + "\n");
+                writer.write("Parent Id: " + text.parentId() + "\n");
+                writer.write("Type: " + text.type() + "\n");
+                writer.write("\n");
+            }
+            System.out.println("Results saved to " + fileName);
+        }
+    }
+
+}

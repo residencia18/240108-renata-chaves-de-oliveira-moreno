@@ -1,0 +1,73 @@
+package com.example.atividades.atividade07;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+
+public class TestDatabase {
+
+    @Test
+    public void testSaveUser() {
+        // Arrange
+        FakeDatabase fakeDatabase = new FakeDatabase();
+        Database database = new Database(fakeDatabase);
+        User user = new User("Renata Moreno", "renatachom.dev@gmail.com");
+
+        // Act
+        database.saveUser(user);
+
+        // Assert
+        assertTrue(fakeDatabase.isUserSaved(user));
+    }
+}
+
+// Interface para representar a interação com o banco de dados
+interface DatabaseInterface {
+    void saveUser(User user);
+}
+
+// Classe de banco de dados real que implementa a interface
+class Database implements DatabaseInterface {
+    private DatabaseInterface databaseInterface;
+
+    public Database(DatabaseInterface databaseInterface) {
+        this.databaseInterface = databaseInterface;
+    }
+
+    public void saveUser(User user) {
+        // Chama o método da interface para salvar o usuário
+        databaseInterface.saveUser(user);
+    }
+}
+
+// Implementação falsa (stub) da interface para uso nos testes
+class FakeDatabase implements DatabaseInterface {
+    private boolean userSaved = false;
+
+    public void saveUser(User user) {
+        // Simula a lógica de salvar o usuário
+        userSaved = true;
+    }
+
+    public boolean isUserSaved(User user) {
+        return userSaved;
+    }
+}
+
+// Classe de usuário
+class User {
+    private String name;
+    private String email;
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+}

@@ -1,0 +1,35 @@
+package com.example.atividades.atividade15;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
+
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.*;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
+public class TestDetectTextImage {
+
+    @Test
+    public void testDetectTextLabels() {
+        // Criar um mock para RekognitionClient
+        RekognitionClient mockRekClient = mock(RekognitionClient.class);
+
+        // Obter o InputStream da imagem (você precisa substituir o conteúdo do array pelos bytes da sua imagem)
+        byte[] imageBytes = { /* bytes da sua imagem */ };
+        InputStream imageInputStream = new ByteArrayInputStream(imageBytes);
+
+        // Criar uma instância de DetectTextImage com o mock RekognitionClient
+        DetectTextImage detectTextImage = new DetectTextImage();
+
+        // Chamar o método detectTextLabels com o InputStream da imagem e o caminho do arquivo de resultado
+        String resultFilePath = "data/test-result.txt";
+        detectTextImage.detectTextLabels(imageInputStream, resultFilePath);
+
+        // Verificar se o método detectText do RekognitionClient foi chamado corretamente
+        verify(mockRekClient, times(1)).detectText(any(DetectTextRequest.class));
+    }
+}
+

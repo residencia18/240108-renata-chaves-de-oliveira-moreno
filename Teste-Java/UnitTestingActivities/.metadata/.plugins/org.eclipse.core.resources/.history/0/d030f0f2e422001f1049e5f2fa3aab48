@@ -1,0 +1,46 @@
+package com.example.atividades.atividade15;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
+
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.*;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+
+public class TestDetectTextImage {
+
+    @Test
+    public void testDetectTextLabels() throws IOException {
+        // Criar um mock para RekognitionClient
+        RekognitionClient mockRekClient = mock(RekognitionClient.class);
+
+        // Criar um arquivo temporário que contém os bytes da imagem
+        File imageFile = criarArquivoTemporario();
+
+        // Criar uma instância de DetectTextImage com o mock RekognitionClient
+        DetectTextImage detectTextImage = new DetectTextImage(imageFile.getAbsolutePath(), mockRekClient);
+
+        // Chamar o método detectTextLabels com o caminho do arquivo de imagem
+        String resultFilePath = "data/test-result.txt";
+        detectTextImage.detectTextLabels(resultFilePath);
+
+        // Verificar se o método detectText do RekognitionClient foi chamado corretamente
+        verify(mockRekClient, times(1)).detectText(any(DetectTextRequest.class));
+
+        // Remover o arquivo temporário após o teste
+        imageFile.delete();
+    }
+
+    private File criarArquivoTemporario() throws IOException {
+        byte[] imageBytes = { /* bytes da sua imagem */ };
+        File imageFile = File.createTempFile("test-image", ".jpg");
+        Files.write(imageFile.toPath(), imageBytes);
+        return imageFile;
+    }
+}
+
+

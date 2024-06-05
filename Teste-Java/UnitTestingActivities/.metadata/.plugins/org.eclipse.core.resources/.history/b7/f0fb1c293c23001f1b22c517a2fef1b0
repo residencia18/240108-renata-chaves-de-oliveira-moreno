@@ -1,0 +1,21 @@
+package com.example.atividades.atividade07;
+
+public class FakeDatabase extends Database {
+
+    private boolean userSaved = false;
+
+    // Adicione um construtor padrão
+    public FakeDatabase() {
+        super(null); // Ou passe null, caso a classe Database não necessite de uma instância concreta de DatabaseInterface no construtor
+    }
+
+    @Override
+    public void saveUser(User user) {
+        // Simula a lógica de salvar o usuário
+        userSaved = true;
+    }
+
+    public boolean isUserSaved(User user) {
+        return userSaved;
+    }
+}

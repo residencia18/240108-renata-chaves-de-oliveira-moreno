@@ -1,0 +1,45 @@
+package com.example.atividades.atividade14;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+public class TestEventHandler {
+
+    @Mock
+    private EmailService mockEmailService;
+
+    private EventHandler eventHandler;
+
+    @BeforeEach
+    public void setUp() {
+        // Inicializa os mocks
+        MockitoAnnotations.openMocks(this);
+        // Cria uma instância de EventHandler usando o mock de EmailService
+        eventHandler = new EventHandler(mockEmailService);
+    }
+
+    @Test
+    public void testHandleEvent_ValidEvent() {
+        // Chame o método handleEvent com um evento válido
+        String event = "Valid event";
+        eventHandler.handleEvent(event);
+
+        // Verifique se o método sendEmail foi chamado corretamente
+        verify(mockEmailService, times(1)).sendEmail(eq("test@example.com"), eq("Event Occurred"), eq(event));
+    }
+
+    @Test
+    public void testHandleEvent_NullEvent() {
+        // Chame o método handleEvent com um evento nulo
+        eventHandler.handleEvent(null);
+
+        // Verifique se o método sendEmail não foi chamado
+        verify(mockEmailService, never()).sendEmail(any(), any(), any());
+    }
+}

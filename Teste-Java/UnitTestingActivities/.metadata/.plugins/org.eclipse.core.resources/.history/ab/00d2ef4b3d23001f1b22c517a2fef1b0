@@ -1,0 +1,17 @@
+package com.example.atividades.atividade07;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Database {
+    private List<User> users = new ArrayList<>();
+
+    public Database(FakeDatabase fakeDatabase) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void saveUser(User user) {
+        // Simula o salvamento do usuário no banco de dados
+        users.add(user);
+    }
+}

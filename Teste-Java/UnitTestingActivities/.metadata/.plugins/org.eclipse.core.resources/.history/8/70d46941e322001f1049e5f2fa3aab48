@@ -1,0 +1,24 @@
+package com.example.atividades.atividade15;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
+
+public class TestDetectTextImage {
+
+    @Test
+    public void testDetectTextLabels() {
+        // Criar um mock para RekognitionClient
+        RekognitionClient mockRekClient = mock(RekognitionClient.class);
+
+        // Criar uma instância de DetectTextImage com o mock RekognitionClient
+        DetectTextImage detectTextImage = new DetectTextImage("data/test-image.jpg", mockRekClient);
+
+        // Chamar o método detectTextLabels com uma imagem de teste
+        String resultFilePath = "data/test-result.txt";
+        detectTextImage.detectTextLabels(resultFilePath);
+
+        // Verificar se o método detectText do RekognitionClient foi chamado corretamente
+        verify(mockRekClient, times(1)).detectText(any());
+    }
+}

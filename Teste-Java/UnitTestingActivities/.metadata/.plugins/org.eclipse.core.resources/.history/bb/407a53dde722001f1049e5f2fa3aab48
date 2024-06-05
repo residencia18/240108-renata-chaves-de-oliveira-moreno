@@ -1,0 +1,19 @@
+package com.example.atividades.atividade14;
+
+import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.Test;
+
+public class TestEmailService {
+
+    @Test
+    public void testSendEmail() {
+        // Crie um mock para EmailService
+        EmailService mockEmailService = mock(EmailService.class);
+
+        // Chame o método sendEmail com argumentos específicos
+        mockEmailService.sendEmail("test@example.com", "Subject", "Body");
+
+        // Verifique se o método sendEmail foi chamado corretamente
+        verify(mockEmailService, times(1)).sendEmail("test@example.com", "Subject", "Body");
+    }
+}

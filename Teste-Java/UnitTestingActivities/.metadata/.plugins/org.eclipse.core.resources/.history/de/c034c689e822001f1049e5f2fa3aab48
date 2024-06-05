@@ -1,0 +1,32 @@
+package com.example.atividades.atividade14;
+
+@Test
+public void testHandleEventValidEvent() {
+    // Crie um mock para EmailService
+    EmailService mockEmailService = mock(EmailService.class);
+
+    // Crie uma instância de EventHandler com o mock EmailService
+    EventHandler eventHandler = new EventHandler(mockEmailService);
+
+    // Chame o método handleEvent com um evento válido
+    eventHandler.handleEvent("Valid event");
+
+    // Verifique se o método sendEmail foi chamado corretamente
+    verify(mockEmailService, times(1)).sendEmail("test@example.com", "Event Occurred", "Valid event");
+}
+
+@Test
+public void testHandleEvent_NullEvent() {
+    // Crie um mock para EmailService
+    EmailService mockEmailService = mock(EmailService.class);
+
+    // Crie uma instância de EventHandler com o mock EmailService
+    EventHandler eventHandler = new EventHandler(mockEmailService);
+
+    // Chame o método handleEvent com um evento nulo
+    eventHandler.handleEvent(null);
+
+    // Verifique se o método sendEmail não foi chamado
+    verify(mockEmailService, never()).sendEmail(anyString(), anyString(), anyString());
+}
+}

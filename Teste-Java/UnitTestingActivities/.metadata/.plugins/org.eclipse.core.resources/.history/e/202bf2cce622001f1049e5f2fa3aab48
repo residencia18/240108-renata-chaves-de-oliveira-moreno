@@ -1,0 +1,45 @@
+package com.example.atividades.atividade15;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import static org.mockito.Mockito.*;
+
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.*;
+
+import java.io.IOException;
+
+public class TestDetectTextImage {
+
+    @Test
+    public void testDetectTextLabels() throws IOException {
+        // Criar um mock para RekognitionClient
+        RekognitionClient mockRekClient = mock(RekognitionClient.class);
+
+        // Criar uma instância de DetectTextImage com o mock RekognitionClient
+        DetectTextImage detectTextImage = new DetectTextImage("data/java.jpg", mockRekClient);
+
+        // Simular o comportamento do método detectText para resolver a ambiguidade
+        when(mockRekClient.detectText(any(DetectTextRequest.class)))
+            .thenReturn(DetectTextResponse.builder().build());
+
+        // Chamar o método detectTextLabels com uma imagem de teste
+        String resultFilePath = "data/test-result.txt";
+        detectTextImage.detectTextLabels(resultFilePath);
+
+        // Verificar se o método detectText do RekognitionClient foi chamado corretamente
+        verify(mockRekClient, times(1)).detectText(any(DetectTextRequest.class));
+    }
+
+    @Test
+    public void testDefaultConstructor() {
+        // Criar uma instância do construtor padrão
+        DetectTextImage detectTextImage = new DetectTextImage();
+
+        // Verificar se os campos foram inicializados corretamente
+        assertEquals("data/img-example-for-aws-task.jpg", detectTextImage.sourceImage);
+        assertEquals(Region.US_WEST_2, detectTextImage.region);
+        assertNotNull(detectTextImage.rekClient); // Verificar se rekClient não é nulo
+    }
+}
+

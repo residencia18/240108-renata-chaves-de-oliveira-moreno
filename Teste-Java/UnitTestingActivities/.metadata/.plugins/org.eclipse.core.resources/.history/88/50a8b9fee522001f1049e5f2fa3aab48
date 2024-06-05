@@ -1,0 +1,61 @@
+package com.example.atividades.atividade15;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import software.amazon.awssdk.regions.Region;
+import software.amazon.awssdk.services.rekognition.RekognitionClient;
+import software.amazon.awssdk.services.rekognition.model.*;
+
+import java.io.IOException;
+import java.util.Collections;
+
+public class TestDetectTextImage {
+
+    private RekognitionClient mockRekognitionClient;
+
+    @BeforeEach
+    public void setup() {
+        mockRekognitionClient = mock(RekognitionClient.class);
+    }
+
+    @Test
+    public void testDetectTextLabels() {
+        // Configurar mock para retornar uma resposta vazia
+        when(mockRekognitionClient.detectText(any(DetectTextRequest.class)))
+                .thenReturn(DetectTextResponse.builder().textDetections(Collections.emptyList()).build());
+
+        // Criar uma instância de DetectTextImage com o cliente Rekognition mockado
+        DetectTextImage detectTextImage = new DetectTextImage("data/java.jpg", mockRekognitionClient);
+
+        // Chamar o método para detectar textos
+        String resultFilePath = "data/test-result.txt";
+        detectTextImage.detectTextLabels(resultFilePath);
+
+        // Verificar se o método detectText foi chamado corretamente
+        verify(mockRekognitionClient, times(1)).detectText(any(DetectTextRequest.class));
+    }
+
+    @Test
+    public void testDetectTextLabelsIOException() {
+        // Configurar mock para lançar uma IOException ao criar o stream de entrada
+        try {
+            when(mockRekognitionClient.detectText(any(DetectTextRequest.class)))
+                    .thenThrow(new RekognitionException("Simulated exception", new IOException()));
+        } catch (RekognitionException e) {
+            e.printStackTrace();
+        }
+
+        // Criar uma instância de DetectTextImage com o cliente Rekognition mockado
+        DetectTextImage detectTextImage = new DetectTextImage("data/java.jpg", mockRekognitionClient);
+
+        // Chamar o método para detectar textos
+        String resultFilePath = "data/test-result.txt";
+        assertThrows(RekognitionException.class, () -> {
+            detectTextImage.detectTextLabels(resultFilePath);
+        });
+    }
+}
+
